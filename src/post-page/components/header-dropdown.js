@@ -1,9 +1,54 @@
 import React from 'react'; 
+import { BiHome, BiTrendingUp, BiBarChartAlt, BiUser } from "react-icons/bi";
 
-import dataHeaderDropDown from './dataHeaderDropDown';
+
+const dataHeaderDropDown = [
+     {
+                id: 1,
+                title: "Home",
+                icon: <BiHome />,
+                section: "FEEDS",
+                anchor: "#"
+            },
+            {
+                id: 2,
+                title: "Popular",
+                icon: <BiTrendingUp />,
+                section: "FEEDS",
+                anchor: "#"
+            },
+            {
+                id: 3,
+                title: "All",
+                icon: <BiBarChartAlt/>,
+                section: "FEEDS",
+                anchor: "#"
+            },{
+                id: 4,
+                title: "User Settings",
+                icon: <BiUser />,
+                section: "OTHERS",
+                anchor: "#"
+            }
+                           
+]
+
 
 
 function DropDown(){
+
+    function returnFilteredMenu(filter, section){
+        if( filter === "") {
+            return dataHeaderDropDown.filter( 
+                element => element.section === section) ;
+        }
+        else{
+            return dataHeaderDropDown.filter( 
+                element => element.section === section && element.title.toLowerCase().includes(filter.toLowerCase())
+            );
+        }
+    }
+
     const [filterState, setFilterState] = React.useState("");
 
     const [arrayDropMenuFeeds, setMenuFeeds] = React.useState(
@@ -20,18 +65,7 @@ function DropDown(){
         })
     }
 
-    function returnFilteredMenu(filter, section){
-        if( filter === "") {
-            return dataHeaderDropDown.filter( 
-                element => element.section === section) ;
-        }
-        else{
-            return dataHeaderDropDown.filter( 
-                element => element.section === section && element.title.toLowerCase().includes(filter.toLowerCase())
-            );
-        }
-    }
-
+    
 
     React.useEffect( function(){
         setMenuFeeds( ()=> returnFilteredMenu(filterState, "FEEDS"));

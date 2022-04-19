@@ -154,6 +154,7 @@ body {
     padding-bottom: 2em;
     background-color: white;
     border-radius: 12px;
+    margin-bottom: 4em;
 
 }
 
@@ -232,4 +233,56 @@ body {
     text-align: center;
     margin-left: 87%;
     cursor: not-allowed;
+}
+.train-logos-sections {
+    display: grid;
+    width: 92%;
+    grid-template: auto auto / repeat(13, 1fr);
+    gap: 20px;
+    background-color: white;
+    border-radius: 12pt;
+    padding: 1em 3em;
+    margin-bottom: 1em;
+
+}
+
+.train-image {
+    cursor: pointer;
+    border-radius: 100%;
+}
+
+.train-image:hover {
+    cursor: pointer;
+    filter: opacity(0.5) drop-shadow(0 0 0 lightskyblue);
+}
+
+.train-image-selected {
+    cursor: pointer;
+    border-radius: 100%;
+    filter: opacity(0.5) drop-shadow(0 0 0 blue);
+
+}
+
+.train-image-not-available {
+    cursor: not-allowed;
+    border-radius: 100%;
+}
+
+.train-image-not-available:hover {
+    cursor: not-allowed;
+    border-radius: 100%;
+}
+
+.rating-overall-section {
+    background-color: white;
+    display: flex;
+    margin: 1em 0em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 12pt;
+}
+
+.rating-overall {
+    margin-top: 1.5em;
+    margin-left: 1em;
 }

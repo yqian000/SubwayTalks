@@ -4,13 +4,18 @@ import Select from 'react-select';
 
 
 function BodySelector(props){
-    
+
     return (
+
         <Select 
             className='select'
             placeholder = "Pick a subway station*"
             options={props.options} 
-            value = { props.options.find( obj => obj.value === props.statePost)}
+            value = {   !props.IsOneSelected? "":
+                        props.stateStation === ""?
+                        "":
+                        props.options.find( obj => obj.label === props.stateStation)
+                }
             onChange = {props.handleChange}
             
         />

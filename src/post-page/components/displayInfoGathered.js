@@ -21,14 +21,13 @@ function DisplayInfo(props){
     //                                      bodyContext: "",
     //                                      idSelector: "",
     //                                      train: "",
-    //                                      station: "",       
+    //                                      station: "",
+    //                                      satisfactionLevel: ""       
     //                            });
-        
 
-           
 
     const location = useLocation();
-    const {userName, title, bodyContext, train, station} = location.state;
+    const {userName, title, bodyContext, train, station, satisfactionLevel} = location.state;
 
     return (
         <div>
@@ -36,8 +35,9 @@ function DisplayInfo(props){
             <h1> You Have successfully make a post </h1>
             <h1> Here is the info you provided: </h1>
             <h2> userName: {userName}</h2>
-            <h2> train: <img src= {require( `../images/${train}-train-logo.jpg` )} alt =''/></h2> 
+            <h2> train: {train.toUpperCase()} </h2> 
             <h2> Station: {station}</h2>
+            <h2> Satisfaction Level: {satisfactionLevel} </h2>
             <h2> Title of the Post: {title} </h2>
             <h2> Context of the Post: {bodyContext}</h2>  
 

@@ -5,13 +5,13 @@ import Body from './components/Body';
 
 function PostPage(){
 
+    
     return ( 
             <div>
-                <Header userName = "userName001" />
+                 <Header userName = "userName001" />
                 <div> 
                     <Body userName = "userName001"/>
                 </div>
-                
             </div>
             );
 }

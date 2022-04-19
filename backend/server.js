@@ -19,6 +19,13 @@ const post = require('./models/Post');
 const postSchema = post.postSchema;
 const Post = new mongoose.model('Post', postSchema);
 
+//-----------ADDED------------------------------------
+const trainRoutes = require('./routers/Train.router');
+
+app.use('/trains', trainRoutes);
+//------------------------------------------------------
+
+
 app.get('/', async (req, res) => {
     const posts = await Post.find();
     res.render('index', { posts: posts });
