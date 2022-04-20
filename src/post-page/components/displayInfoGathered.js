@@ -22,12 +22,14 @@ function DisplayInfo(props){
     //                                      idSelector: "",
     //                                      train: "",
     //                                      station: "",
-    //                                      satisfactionLevel: ""       
+    //                                      satisfactionLevel: "" 
+    //                                      dangerLevel: ""      
     //                            });
 
 
     const location = useLocation();
-    const {userName, title, bodyContext, train, station, satisfactionLevel} = location.state;
+    const {userName, title, bodyContext, 
+            train, station, satisfactionLevel, dangerLevel} = location.state;
 
     return (
         <div>
@@ -38,6 +40,7 @@ function DisplayInfo(props){
             <h2> train: {train.toUpperCase()} </h2> 
             <h2> Station: {station}</h2>
             <h2> Satisfaction Level: {satisfactionLevel} </h2>
+            <h2> Dangerous Level: {dangerLevel}</h2> 
             <h2> Title of the Post: {title} </h2>
             <h2> Context of the Post: {bodyContext}</h2>  
 

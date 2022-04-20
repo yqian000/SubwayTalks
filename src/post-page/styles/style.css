@@ -275,14 +275,20 @@ body {
 
 .rating-overall-section {
     background-color: white;
-    display: flex;
     margin: 1em 0em;
     padding-left: 1em;
     padding-right: 1em;
     border-radius: 12pt;
 }
 
-.rating-overall {
-    margin-top: 1.5em;
+.rating-faces {
+    margin-top: 1.3em;
+    margin-left: 1em;
+}
+    .rating-overall {
+        display: flex;
+        }
+        
+        .dynamic-text {
     margin-left: 1em;
 }

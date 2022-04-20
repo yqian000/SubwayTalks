@@ -67,7 +67,9 @@ function Body(props){
         idSelector: "",
         train: "",
         station: "",
-        satisfactionLevel: ""       
+        satisfactionLevel: "",
+        dangerLevel: ""  
+
     });
 
    
@@ -175,7 +177,7 @@ function Body(props){
     // ^ Train Selector states and handlers
 
     // Rating states and handlers
-    const [ratingValue, setRatingValue] = React.useState(1);
+    const [ratingValue, setRatingValue] = React.useState(null);
     
 
     React.useEffect( ()=>{
@@ -186,6 +188,17 @@ function Body(props){
                 };
             });
     }, [ratingValue]);
+
+    const [dangerValue, setDangerValue] = React.useState(null); 
+
+    React.useEffect( ()=>{
+            setStatePost( (prevState) => {
+                return {
+                    ...prevState,
+                    dangerLevel: dangerValue
+                }
+            });
+    }, [dangerValue]);
 
     // ^Rating states and handlers
 
@@ -223,8 +236,12 @@ function Body(props){
                     handleChange = { (event,newValue) =>{
                         setRatingValue(newValue);
                     } }
+                    valueDanger = {dangerValue}
+                    handleDangerChange = { (event, newValue) => {
+                        setDangerValue(newValue)
+                    }}
                 />
-
+                
                 <div className='post-section'>
                     <BodyPostSection 
                     handleChange= {(event) => handleChange(event)}
@@ -239,6 +256,8 @@ function Body(props){
                                         "Submit-section-not-active":
                                         typeof(ratingValue) !== 'number'?
                                         "Submit-section-not-active":
+                                        typeof(dangerValue) !== 'number'?
+                                        "Submit-section-not-active":
                                         "Submit-section-active"} 
                         type='submit' 
                         disabled = { IsOneSelected === false?
@@ -248,6 +267,8 @@ function Body(props){
                                         selectorState === ""?
                                         true:
                                         typeof(ratingValue) !== 'number'?
+                                        true:
+                                        typeof(dangerValue) !== 'number'?
                                         true:
                                         false}> Post </button>
                 </div>
