@@ -16,7 +16,7 @@ import trainData from './trainData'; // JSON file containing train data
 
 import LogoTrain from './logo-train';
 
-
+import axios from 'axios';
 
 const trainsArray = [
     { name: '1', isHeld: false},
@@ -204,10 +204,31 @@ function Body(props){
 
     // Submit button handler
     let navigate =  useNavigate();
+
+
     function handleSubmit(event){
         event.preventDefault(); 
         event.stopPropagation();
-        navigate( "/success", {state:statePost});
+
+        axios.post("http://localhost:5000/posts/add_post", 
+                {
+                    username: statePost.userName,
+                    trainName: statePost.train,
+                    stationName: statePost.station,
+                    title: statePost.title,
+                    body: statePost.bodyContext,
+                    overallRating: statePost.satisfactionLevel,
+                    dangerLevel: statePost.dangerLevel
+
+                },
+        )
+        .then( function(response){
+            console.log(response); 
+            navigate( "/success", {state:statePost});
+        })
+        .catch( err => console.log(err));
+        
+      
     }
     // ^Submit button handle
 

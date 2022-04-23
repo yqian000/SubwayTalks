@@ -20,7 +20,7 @@ function Header(props){
     const userName = props.userName;
 
     const style = {
-        "box-shadow": buttonState?"":"0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1)" 
+        "boxShadow": buttonState?"":"0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1)" 
     }
 
     return ( 

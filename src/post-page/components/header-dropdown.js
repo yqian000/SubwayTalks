@@ -75,16 +75,16 @@ function DropDown(){
 
         
     const dropMenuFeedsElements = arrayDropMenuFeeds.map((element) =>{
-            return <a href= {element.anchor}> {element.icon} {element.title} </a>
+            return <a href= {element.anchor} key = {element.title}> {element.icon} {element.title} </a>
     } ) ;
                             
     const dropMenuOthersElements = arrayDropMenuOthers.map( (element) => {
-            return <a href= {element.anchor}> {element.icon} {element.title} </a>
+            return <a href= {element.anchor} key = {element.title}> {element.icon} {element.title} </a>
     });
 
 
 
-    return (<div class="dropdown-content">
+    return (<div className="dropdown-content">
                 <input  type= "text" 
                         placeholder='Filter'
                         className='filter' 
