@@ -31,10 +31,12 @@ const port = process.env.PORT || 5000;
 
 //-----------ADDED------------------------------------
 const trainRoutes = require('./routers/Train.router');
-const postRoutes = require( './routers/Post.router');
+const postRoutes  = require( './routers/Post.router');
+const stationRoutes = require('./routers/Station.router'); 
 
 app.use('/trains', trainRoutes);
 app.use('/posts', postRoutes);
+app.use('/stations', stationRoutes);
 //------------------------------------------------------
 
 

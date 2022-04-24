@@ -25,7 +25,7 @@ function BodyPostSection(props){
                 <div className='input-body-box'> 
                     
                     <input 
-                        className='body-post'
+                        className='body-post-post-page'
                         type= "text"
                         placeholder= "Text (optional)"
                         maxLength= "500"

@@ -13,7 +13,7 @@ import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 
 import MoodBadIcon from '@mui/icons-material/MoodBad';
-import Box from '@mui/material/Box';
+
 const customFaceIcons = {
   1: {
     icon: <SentimentVeryDissatisfiedIcon/>,

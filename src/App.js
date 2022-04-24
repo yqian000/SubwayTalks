@@ -14,9 +14,9 @@ function App() {
     <>
 
       <Routes>
-         <Route  exact path = "/" element = {<PostPage />} />
+         <Route  exact path = "/make-a-post" element = {<PostPage />} />
          <Route  exact path = "/success" element = { <DisplayInfo />} />    
-         <Route  exact path = "/Train"   element = {<TrainPage />} />              
+         <Route  exact path = "/"   element = {<TrainPage />} />              
       </Routes> 
 
     </>

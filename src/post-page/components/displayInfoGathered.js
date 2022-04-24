@@ -2,11 +2,12 @@ import React from 'react';
 
 import { useLocation } from 'react-router-dom';
 
-import Confetti from 'react-confetti'
+
+
 function DisplayInfo(props){
 
     
-    // We can gather data from the link by using react router hook: useLocation  
+    // We can gather data from the link by using react router hook: useLocation or navigate  
     // The useNavigate was given a state object (check Body.js):  
     //                  let navigate =  useNavigate();
     //                  function handleSubmit(event){
@@ -33,7 +34,6 @@ function DisplayInfo(props){
 
     return (
         <div>
-            <Confetti />
             <h1> You Have successfully make a post </h1>
             <h1> Here is the info you provided: </h1>
             <h2> userName: {userName}</h2>

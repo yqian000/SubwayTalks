@@ -1,0 +1,326 @@
+/*
+    Header Styles
+*/
+.station-title {
+
+    width: 50%;
+    margin-top: 1em;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.train-logos-sections {
+    display: grid;
+    width: 50%;
+    grid-template: auto auto / repeat(4, 1fr);
+    gap: 20px;
+    background-color: white;
+    border-radius: 12pt;
+    padding: 1em 3em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+
+}
+
+.train-image {
+
+    border-radius: 100%;
+}
+
+
+.station-section {
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.station-pic {
+    width: 100%;
+    align-items: center;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/*
+    ^ Header Styles
+*/
+
+/*
+    Body Styles
+*/
+.body-post {
+    width: 53.5%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding: 1em;
+    height: 4em;
+    border-radius: 4pt;
+}
+
+.reddit-icon {
+    width: 4em;
+    height: 4em;
+    margin-right: 1em;
+}
+
+.create-post {
+    height: 4em;
+    width: 100%;
+    margin: 0;
+    background-color: aliceblue;
+}
+
+
+.body-filter-station-page {
+    width: 53.5%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: white;
+    padding: 1em;
+    height: 4em;
+    border-radius: 4pt;
+}
+
+
+.reddit-icon-standing {
+    width: 4em;
+    height: 4em;
+    margin-right: 1em;
+}
+
+.filter-button-station-page {
+    display: flex;
+    cursor: pointer;
+    background-color: white;
+    width: 8em;
+    align-items: center;
+    border-radius: 35%;
+}
+
+.filter-button-station-page:hover {
+    display: flex;
+    cursor: pointer;
+    background-color: whitesmoke;
+    width: 8em;
+    align-items: center;
+    border-radius: 35%;
+}
+
+
+
+.filter-button-icon-station-page {
+    margin-top: 0.3em;
+    margin-right: 0.3em;
+}
+
+
+
+.card-post-station-page {
+    width: 52%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+    background-color: white;
+    padding: 1em 2em;
+    border-radius: 12pt;
+}
+
+
+.top-section-card-post-station-page {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.up-vote-button-card-post-station-page {
+    padding: 0;
+    margin: 0em;
+    display: inline-block;
+}
+
+
+/* up-vote section button with only one unit */
+.top-section-plus-one-unit-station-page {
+    color: grey;
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: -0.2em;
+    margin-top: 0;
+    margin-bottom: -1.2em;
+
+}
+
+.top-section-votes-one-unit-station-page {
+    font-size: 2em;
+    margin-left: 0em;
+}
+
+.top-section-minus-one-unit-station-page {
+    background-color: white;
+    color: grey;
+    margin-left: -0.2em;
+    font-size: 2em;
+    border-radius: 20px;
+    margin-top: -1em;
+    margin-bottom: 0;
+}
+
+/* ^ up-vote section button with only one unit */
+
+/* up-vote section button with only two units */
+.top-section-plus-two-units-station-page {
+    color: grey;
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 0em;
+    margin-top: 0;
+    margin-bottom: -1.2em;
+
+}
+
+.top-section-votes-two-units-station-page {
+    font-size: 2em;
+    margin-left: 0em;
+}
+
+.top-section-minus-two-units-station-page {
+    background-color: white;
+    color: grey;
+    margin-left: 0em;
+    font-size: 2em;
+    border-radius: 20px;
+    margin-top: -1em;
+    margin-bottom: 0;
+}
+
+/* ^ up-vote section button with only two units */
+
+/* up-vote section button with only three units */
+.top-section-plus-three-units-station-page {
+    color: grey;
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 0.30em;
+    margin-top: 0;
+    margin-bottom: -1.2em;
+
+}
+
+.top-section-votes-three-units-station-page {
+    font-size: 2em;
+    margin-left: 0em;
+}
+
+.top-section-minus-three-units-station-page {
+    background-color: white;
+    color: grey;
+    margin-left: 0.30em;
+    font-size: 2em;
+    border-radius: 20px;
+    margin-top: -1em;
+    margin-bottom: 0;
+}
+
+/* ^ up-vote section button with only three units */
+
+
+/* up-vote section button with only four units */
+.top-section-plus-four-units-station-page {
+    color: grey;
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 0.57em;
+    margin-top: 0;
+    margin-bottom: -1.2em;
+}
+
+.top-section-votes-four-units-station-page {
+    font-size: 2em;
+}
+
+.top-section-minus-four-units-station-page {
+    background-color: white;
+    color: grey;
+    margin-left: 0.57em;
+    font-size: 2em;
+    border-radius: 20px;
+    margin-top: -1em;
+    margin-bottom: 0;
+}
+
+/* ^ up-vote section button with only three units */
+
+
+.posted-by-section-station-page {
+    margin-left: 1em;
+    color: gray;
+    margin-top: -1em;
+}
+
+.title-of-post-station-page {
+    font-size: 1.5em;
+    margin-left: 0.65em;
+    margin-top: -1em;
+}
+
+
+/* body of post with only one unit of up vote */
+.body-of-post-one-unit-station-page {
+    margin-left: 1.2em;
+    margin-top: -1em;
+    font-size: 2em;
+}
+
+/* ^body of post with only one unit of up vote */
+
+/* body of post with only two units of up vote */
+.body-of-post-two-units-station-page {
+    margin-left: 1.5em;
+    margin-top: -1em;
+    font-size: 2em;
+}
+
+/* ^body of post with only two units of up vote */
+
+/* body of post with only three units of up vote */
+.body-of-post-three-units-station-page {
+    margin-left: 2em;
+    margin-top: -1em;
+    font-size: 2em;
+}
+
+/* ^body of post with only three units of up vote */
+
+/* body of post with only four units of up vote */
+.body-of-post-four-units-station-page {
+    margin-left: 2.5em;
+    margin-top: -1em;
+    font-size: 2em;
+}
+
+/* ^body of post with only four units of up vote */
+
+
+/* comment section */
+.footer-of-post-station-page {
+    display: flex;
+    color: grey;
+    font-weight: 900;
+}
+
+.footer-of-post-station-page>p {
+    margin-left: 0.5em;
+    margin-top: 0.2em;
+    font-size: 1.2em;
+}
+
+/* ^comment section */

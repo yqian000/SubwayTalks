@@ -184,7 +184,7 @@ body {
 }
 
 
-.body-post {
+.body-post-post-page {
     margin: 1em;
     height: 1em;
     padding: 0;
@@ -234,7 +234,7 @@ body {
     margin-left: 87%;
     cursor: not-allowed;
 }
-.train-logos-sections {
+.train-logos-sections-post-page {
     display: grid;
     width: 92%;
     grid-template: auto auto / repeat(13, 1fr);
@@ -285,10 +285,11 @@ body {
     margin-top: 1.3em;
     margin-left: 1em;
 }
-    .rating-overall {
-        display: flex;
-        }
-        
-        .dynamic-text {
+
+.rating-overall {
+    display: flex;
+}
+
+.dynamic-text {
     margin-left: 1em;
 }

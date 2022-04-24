@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { useNavigate} from "react-router-dom";
 import { Label } from 'semantic-ui-react';
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 import '../styles/style.css'
 
@@ -202,11 +202,17 @@ function Body(props){
 
     // ^Rating states and handlers
 
+    // Circular progress
+    const [activeCircular, setCircular] = React.useState(false);
+    // ^ Circular Progress 
+
+
     // Submit button handler
     let navigate =  useNavigate();
 
 
     function handleSubmit(event){
+        setCircular(true);
         event.preventDefault(); 
         event.stopPropagation();
 
@@ -219,11 +225,11 @@ function Body(props){
                     body: statePost.bodyContext,
                     overallRating: statePost.satisfactionLevel,
                     dangerLevel: statePost.dangerLevel
-
                 },
         )
         .then( function(response){
             console.log(response); 
+            // TODO: Navigate to the corresponding station
             navigate( "/success", {state:statePost});
         })
         .catch( err => console.log(err));
@@ -232,15 +238,18 @@ function Body(props){
     }
     // ^Submit button handle
 
+  
+
     return (
         <main className='main'> 
             <BodyTitle title = "Create a post"/>   
-          
+            
+             
             <form onSubmit={handleSubmit}> 
                 
                 <div>   
                 <Label> <h1> Pick a train 🚆: </h1> </Label>
-                    <div className='train-logos-sections'>
+                    <div className='train-logos-sections-post-page'>
                         {trainLogos}
                     </div>     
                 </div>
@@ -268,6 +277,9 @@ function Body(props){
                     handleChange= {(event) => handleChange(event)}
                     statePost = {statePost}
                     />
+                    { 
+                        activeCircular?
+                    <CircularProgress />:
                     <button 
                         className = { IsOneSelected === false?
                                         "Submit-section-not-active":
@@ -291,7 +303,8 @@ function Body(props){
                                         true:
                                         typeof(dangerValue) !== 'number'?
                                         true:
-                                        false}> Post </button>
+                                        false}> Post 
+                     </button>}
                 </div>
                 
 
