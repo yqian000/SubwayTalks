@@ -20,7 +20,7 @@ function TrainPage(){
                 setStation( {...response.data,
                     trains: response.data.trains.map( (train) => {
                         return <img  
-                         src= {require( `./images/${train.toLowerCase()}-train-logo.jpg` )} 
+                         src= {require( `./train_logos/${train.toLowerCase()}-train-logo.png` )} 
                          alt = "" key = {train}/>
                     })
                 });

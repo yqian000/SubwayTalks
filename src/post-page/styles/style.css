@@ -260,6 +260,7 @@ body {
     cursor: pointer;
     border-radius: 100%;
     filter: opacity(0.5) drop-shadow(0 0 0 blue);
+    transform: scale(1.5);
 
 }
 
@@ -273,6 +274,16 @@ body {
     border-radius: 100%;
 }
 
+.pick-a-train {
+    display: flex;
+}
+
+.train-image-selected-title {
+    margin-top: 0.3em;
+    margin-left: 0.7em;
+    margin-bottom: -0.4em;
+    transform: scale(1.0);
+}
 .rating-overall-section {
     background-color: white;
     margin: 1em 0em;

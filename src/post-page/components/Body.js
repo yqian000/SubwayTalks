@@ -248,7 +248,18 @@ function Body(props){
             <form onSubmit={handleSubmit}> 
                 
                 <div>   
-                <Label> <h1> Pick a train 🚆: </h1> </Label>
+                        <Label> <h1 className='pick-a-train'> Pick a train 🚆: 
+
+                        <div>
+                            { statePost.train !== "" && <img 
+                            className= 'train-image-selected-title'
+                            src= {require( `../../train-page/train_logos/${statePost.train}-train-logo.png` )} 
+                            alt =''
+                            />}
+                        </div>        
+                    </h1> 
+                            
+                    </Label>
                     <div className='train-logos-sections-post-page'>
                         {trainLogos}
                     </div>     

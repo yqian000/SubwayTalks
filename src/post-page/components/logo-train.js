@@ -1,7 +1,7 @@
 import React from 'react' ;
 
 function LogoTrain(props){
-    // 
+    // ../images/${props.nameOfTrain}-train-logo.jpg
     return (
          <div className='train-image'
             onClick={ props.isOneHeld ? props.freeStation :props.holdStation}
@@ -10,7 +10,7 @@ function LogoTrain(props){
                     className= { props.isHeld? 'train-image-selected':
                                  props.isOneHeld?'train-image-not-available':
                                  'train-image'}
-                    src= {require( `../images/${props.nameOfTrain}-train-logo.jpg` )} 
+                    src= {require( `../../train-page/train_logos/${props.nameOfTrain}-train-logo.png` )} 
                     alt =''
                     key={props.nameOfTrain}
                     /> 
