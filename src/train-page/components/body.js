@@ -17,6 +17,8 @@ const postsData = [
         id: "1",
         username: "Anonymous1729",
         datePost: format( Date.now() , 'yyyy-MM-dd' ),
+        isUp: false,
+        isDown: true,
         numberOfVotes: 1729, 
         title: "Nice entertainment",
         bodyContext: "You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there You can always find nice musician there",
@@ -26,6 +28,8 @@ const postsData = [
         id: "2",
         username: "Fermat65537",
         datePost: format( Date.now(), 'yyyy-MM-dd'),
+        isUp: false,
+        isDown: false,
         numberOfVotes: 99,
         title: "I found a lost wallet there",
         bodyContext: "It was empty at the end of the day.",
@@ -35,6 +39,8 @@ const postsData = [
         id: "3",
         username: "DeepBlue",
         datePost: format( Date.now(), 'yyyy-MM-dd'),
+        isUp: false,
+        isDown: false,
         numberOfVotes: 9,
         title: "I meet the ex chess Champion Kasparov at Union Square",
         bodyContext: "He asked for a rematch",
@@ -44,6 +50,8 @@ const postsData = [
         id: "4",
         username: "bot_0101001",
         datePost: format( Date.now(), 'yyyy-MM-dd'),
+        isUp: false, 
+        isDown: false,
         numberOfVotes: 777,
         title: "Easy to get lost",
         bodyContext: "So many exits",
@@ -89,13 +97,76 @@ function Body(){
     // ^ Filter usage section, send the user to `.../new` or `.../top`
 
     // Post Section
-    const [statePostCards, setPostCards] = React.useState(postsData); 
+    const [statePostCards, setPostCards] = React.useState(postsData);  
+    function handlePostCardUpVote(id){
+        setPostCards( (oldPosts)=> {
+            let tempVotes = 0;
+
+            return oldPosts.map( (post) =>{
+
+                if(post.isDown === false && post.isUp === false){
+                        tempVotes = post.numberOfVotes +1;
+                    }
+                    else if( post.isDown === false && post.isUp === true){ 
+                        tempVotes =  post.numberOfVotes - 1;
+                    }
+                    else if( post.isDown === true && post.isUp === false){
+                        tempVotes = post.numberOfVotes + 2;
+                    }
+
+
+                return post.id === id?
+                       {...post,
+                            numberOfVotes: tempVotes,
+                            isUp: !post.isUp,
+                            isDown: false,                              
+                        }:
+                       post ;
+            });
+        });
+    }
+    
+
+    
+    function handlePostCardDownVote(id){
+        setPostCards( (oldPosts)=> {
+            let tempVotes = 0;
+
+            return oldPosts.map( (post) =>{
+
+                if(post.isDown === false && post.isUp === false){
+                        tempVotes = post.numberOfVotes -1;
+                    }
+                    else if( post.isDown === false && post.isUp === true){ 
+                        tempVotes =  post.numberOfVotes - 2;
+                    }
+                    else if( post.isDown === true && post.isUp === false){
+                        tempVotes = post.numberOfVotes + 1;
+                    }
+
+
+                return post.id === id?
+                       {...post,
+                            isUp: false, 
+                            numberOfVotes: tempVotes,
+                            isDown: !post.isDown,
+                                                         
+                        }:
+                       post ;
+            });
+        });
+    }
+    
     const postCards = statePostCards.map( (post) =>{
         return (<CardPost 
                     key = {post.id}
                     username = {post.username}
                     datePost = {post.datePost}
                     numberOfVotes = {post.numberOfVotes}
+                    isUp = {post.isUp}
+                    handleUp = {()=>handlePostCardUpVote(post.id)}
+                    handleDown = { ()=>handlePostCardDownVote(post.id)}
+                    isDown = {post.isDown}
                     title = {post.title}
                     bodyContext = {post.bodyContext}
                     numberOfComments = {post.numberOfComments}
@@ -141,7 +212,6 @@ function Body(){
                     </div>
                    
             </div>
-
                 {postCards}
         </main>
     );

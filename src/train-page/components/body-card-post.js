@@ -16,58 +16,55 @@ function CardPost(props){
     const bodyContext = props.bodyContext; 
     const numberOfComments = props.numberOfComments;
 
-    
-    const [stateCardPost, setCardPost] = React.useState( {
-            username: username,
-            datePost: datePost,
-            title: title,
-            bodyContext: bodyContext,
-            numberOfVotes: numberOfVotes,
-            numberOfComments: numberOfComments
-    });
-
     return (
         <div className='card-post-station-page'> 
             <div className='top-section-card-post-station-page'>
                 <div className='up-vote-button-card-post-station-page'>
-                    <p className= { stateCardPost.numberOfVotes <=9?
+                    <p className= { numberOfVotes <=9?
                                     'top-section-plus-one-unit-station-page':
-                                    stateCardPost.numberOfVotes <= 99?
+                                    numberOfVotes <= 99?
                                     'top-section-plus-two-units-station-page':
-                                    stateCardPost.numberOfVotes <=999?
+                                    numberOfVotes <=999?
                                     'top-section-plus-three-units-station-page':
                                     'top-section-plus-four-units-station-page'
                                     }> 
                         
-                        <BiUpvote color='orange'/>
-
+                                <BiUpvote color= { props.isUp?'orange':''}
+                                
+                                onClick = {props.handleUp}
+                                />                            
+                        
+                        
                     </p>
-                    <p className= {stateCardPost.numberOfVotes <= 9?
+                    <p className= {numberOfVotes <= 9?
                                     'top-section-votes-one-unit-station-page':
-                                    stateCardPost.numberOfVotes <=99?
+                                    numberOfVotes <=99?
                                     'top-section-votes-two-units-station-page':
-                                    stateCardPost.numberOfVotes <=999?
+                                    numberOfVotes <=999?
                                     'top-section-votes-three-units-station-page':
                                     'top-section-votes-four-units-station-page'}>  
-                        {stateCardPost.numberOfVotes}
+                        {numberOfVotes}
                     </p>
-                    <p className = { stateCardPost.numberOfVotes <=9?
+                    <p className = { numberOfVotes <=9?
                                     'top-section-minus-one-unit-station-page':
-                                    stateCardPost.numberOfVotes <=99?
+                                    numberOfVotes <=99?
                                     'top-section-minus-two-units-station-page':
-                                    stateCardPost.numberOfVotes <= 999?
+                                    numberOfVotes <= 999?
                                     'top-section-minus-three-units-station-page':
                                     'top-section-minus-four-units-station-page'}> 
-                                <BiDownvote /> 
+                                <BiDownvote 
+                                    color = {props.isDown? 'blue':''}
+                                    onClick ={props.handleDown}
+                                /> 
                     </p>                  
                 </div>
 
                 <div> 
                     <div className='posted-by-section-station-page'>
-                        <h4> Posted by u/{stateCardPost.username} on {stateCardPost.datePost}</h4>
+                        <h4> Posted by u/{username} on {datePost}</h4>
                     </div>
                     <div className='title-of-post-station-page'>
-                        <h2> {stateCardPost.title}</h2> 
+                        <h2> {title}</h2> 
                     </div>
                  
                 </div>
@@ -76,25 +73,25 @@ function CardPost(props){
             </div>
 
             <div className= {
-                stateCardPost.numberOfVotes <=9?
+                numberOfVotes <=9?
                 'body-of-post-one-unit-station-page':
-                stateCardPost.numberOfVotes <=99?
+                numberOfVotes <=99?
                 'body-of-post-two-units-station-page':
-                stateCardPost.numberOfVotes <= 999?
+                numberOfVotes <= 999?
                 'body-of-post-three-units-station-page':
                 'body-of-post-four-units-station-page'}
             >
                    
-                    <p> {stateCardPost.bodyContext}</p>
+                    <p> {bodyContext}</p>
             </div>
 
 
             <div className='footer-of-post-station-page'>
                     <BiMessageDetail size={30}/>
                     <p>  
-                        {stateCardPost.numberOfComments}
+                        {numberOfComments}
                         {
-                        stateCardPost.numberOfComments === 1? " Comment":
+                        numberOfComments === 1? " Comment":
                         " Comments"
                         } 
                     
