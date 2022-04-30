@@ -32,7 +32,35 @@ const postSchema = new Schema(
             type: String, 
             required: true
         },
-       
+        date: {
+        type: String,
+        default: (new Date()).toDateString()
+         }, 
+         numberOfVotes:{
+             type: Number,
+             required: true
+         },
+         numberOfComments:{
+             type: Number,
+             required: true,
+         },
+        isUp:{
+            type: Boolean,
+            required: true, 
+        },
+        isDown: {
+            type: Boolean,
+            required: true,
+        },
+        comments: [{
+            body: String,
+            date: Date
+        }],
+        station_id: {
+            type: String, 
+            required: true,
+        }
+        
     }
     );
 

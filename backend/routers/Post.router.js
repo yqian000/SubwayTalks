@@ -1,4 +1,5 @@
 const router = require('express').Router();
+
 let Post = require( '../models/Post.model');
 
 router.route('/').get( (req,res) => {
@@ -15,6 +16,13 @@ router.route('/add_post').post( (req, res) =>{
     const body = req.body.body; 
     const overallRating = req.body.overallRating ; 
     const dangerLevel = req.body.dangerLevel;
+    const date = req.body.date; 
+    const numberOfVotes = req.body.numberOfVotes; 
+    const numberOfComments = req.body.numberOfComments;
+    const isUp = req.body.isUp; 
+    const isDown = req.body.isDown;
+    const comments = req.body.comments;
+    const station_id = req.body.station_id;
 
     const newPost = new Post({
         username,
@@ -23,7 +31,14 @@ router.route('/add_post').post( (req, res) =>{
         title, 
         body,
         overallRating,
-        dangerLevel
+        dangerLevel,
+        date,
+        numberOfVotes,
+        numberOfComments,
+        isUp,
+        isDown,
+        comments,
+        station_id
     });
     
     newPost.save()
@@ -41,6 +56,17 @@ router.route('/get/:id').get( (req,res) =>{
     .catch( err => res.status(400).json('Error: ' + err));
 });
 
+// ADDED
+router.route('/get/post/:station_id').get( (req,res) =>{
+    
+    Post.find( {station_id: `${req.params.station_id}` } ).exec()
+    .then( post => res.json(post))
+    .catch( err => res.status(400).json('Error: ' + err));
+
+});
+// ^ADDED
+
+
 router.route('/delete/:id').delete( (req,res) =>{
     Post.findByIdAndDelete(req.params.id)
     .then( () => res.json('Post deleted'))
@@ -57,6 +83,13 @@ router.route( '/update/:id').post( (req,res) => {
         post.body = req.body.body; 
         post.overallRating = req.body.overallRating; 
         post.dangerLevel = req.body.dangerLevel;
+        post.date = req.body.date;
+        post.numberOfVotes = req.body.numberOfVotes;
+        post.numberOfComments = req.body.numberOfComments;
+        post.isUp = req.body.isUp;
+        post.isDown = req.body.isDown; 
+        post.comments = req.body.comments;
+        post.station_id = req.body.station_id;
 
         post.save()
         .then( ()=> res.json('Post updated!') )

@@ -24,6 +24,7 @@ function TrainPage(){
                          alt = "" key = {train}/>
                     })
                 });
+            
         } )
         .catch( err => err);
 
@@ -36,7 +37,7 @@ function TrainPage(){
                       trainArray = {stationState.trains}
                       url = {stationState.url}
              />
-             <Body />
+             <Body stationId = {stationState._id}/>
              
 
         </div>

@@ -68,8 +68,13 @@ function Body(props){
         train: "",
         station: "",
         satisfactionLevel: "",
-        dangerLevel: ""  
-
+        dangerLevel: "",
+        numberOfVotes: 0,
+        numberOfComments: 0,
+        isUp: false, 
+        isDown: false,
+        comments: [],
+        station_id: "62635fec16afcb1ab116ee06"
     });
 
    
@@ -216,6 +221,7 @@ function Body(props){
         event.preventDefault(); 
         event.stopPropagation();
 
+        // Send the data to the database
         axios.post("http://localhost:5000/posts/add_post", 
                 {
                     username: statePost.userName,
@@ -224,7 +230,13 @@ function Body(props){
                     title: statePost.title,
                     body: statePost.bodyContext,
                     overallRating: statePost.satisfactionLevel,
-                    dangerLevel: statePost.dangerLevel
+                    dangerLevel: statePost.dangerLevel,
+                    numberOfVotes: statePost.numberOfVotes,
+                    numberOfComments: statePost.numberOfComments,
+                    isUp: statePost.isUp,
+                    isDown: statePost.isDown,
+                    comments: statePost.comments,
+                    station_id: statePost.station_id
                 },
         )
         .then( function(response){
