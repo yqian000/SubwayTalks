@@ -29,6 +29,21 @@
     border-radius: 100%;
 }
 
+.overall-rating-section {
+    display: flex;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.overall-stars {
+    margin-top: 1em;
+}
+
+.danger-stars {
+    margin-top: 1em;
+    margin-left: 1em;
+}
 
 .station-section {
     width: 55%;

@@ -15,7 +15,19 @@ const stationSchema = new Schema(
         trains: {
             type: Array,
             required: true,
-        }
+        },
+        borough: {
+            type: String,
+            required: true,
+        },
+        overallStars:{
+            type: Number,
+            required: true,
+        },
+        dangerLevel:{
+            type: Number,
+            required: true,
+        }, 
     }
 );
 

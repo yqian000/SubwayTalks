@@ -221,7 +221,21 @@ function Body(props){
         event.preventDefault(); 
         event.stopPropagation();
 
-        // Send the data to the database
+        // Find the corresponding station id
+        //  axios.get(`http://localhost:5000/posts/get/post/${props.stationId}`)
+        // .then( function(response){
+        //     setPostCards( response.data) ; 
+        // } )
+        // .catch( err => err);
+        // '/get/stationBy/:stationTrain/:stationName'
+        let stationId;
+        axios.get(`http://localhost:5000/stations/get/stationBy/${statePost.train.toUpperCase()}/${statePost.station}`)
+        .then( function(response){
+            stationId = response.data[0]._id
+
+            console.log(stationId);
+            
+            // Send the data to the database
         axios.post("http://localhost:5000/posts/add_post", 
                 {
                     username: statePost.userName,
@@ -236,7 +250,7 @@ function Body(props){
                     isUp: statePost.isUp,
                     isDown: statePost.isDown,
                     comments: statePost.comments,
-                    station_id: statePost.station_id
+                    station_id: stationId
                 },
         )
         .then( function(response){
@@ -245,6 +259,12 @@ function Body(props){
             navigate( "/success", {state:statePost});
         })
         .catch( err => console.log(err));
+        
+
+
+        }
+        )
+
         
       
     }

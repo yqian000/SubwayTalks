@@ -2,15 +2,20 @@ export default [
     {
         id: '1',
         train: 'l',
-        stations: [ 'Eight Avenue', 'Sixth Avenue',
-                    'Union Square','Third Avenue','First Avenue',
-                    'Bedford Avenue','Lorimer Street','Graham Avenue',
-                    'Grand Street','Montrose Avenue','Morgan Avenue',
-                    'Jefferson Street','DeKalb Avenue','Myrtle-Wyckoff Avenues',
-                    'Halsey Street','Wilson Avenue','Bushwick Avenue-Aberdeen Street',
-                    'Broadway Junction','Atlantic Avenue','Suffer Avenue',
-                    'Livonia Avenue','New Lots Avenue','East 105th Street',
-                    'Canarsie-Rockaway Parkway']
+        stations: [ 
+                    '14th Street/Eighth Avenue station','14th Street/Sixth Avenue station',
+                    '14 Street Union Square Station','Third Avenue station','First Avenue station',
+                    'Bedford Avenue station','Metropolitan Avenue/Lorimer Street station',
+                    'Graham Avenue station','Grand Street station',
+                    'Montrose Avenue station','Morgan Avenue station',
+                    'Jefferson Street station', 'DeKalb Avenue station',
+                    'Myrtle–Wyckoff Avenues station', 'Halsey Street station',
+                    'Wilson Avenue station', 'Bushwick Avenue–Aberdeen Street station',
+                    'Broadway Junction station', 'Atlantic Avenue station',
+                    'Sutter Avenue station', 'Livonia Avenue station',
+                    'New Lots Avenue station', 'East 105th Street station',   
+                    'Canarsie–Rockaway Parkway station',            
+                ]
     },
     {
         id: '2',
@@ -22,7 +27,7 @@ export default [
                     'Clinton-Washington Avenues','Fulton Street',
                     'Hoyt-Schermerhorn Streets','Bergen Street',
                     'Carrol Street','Smith-Ninth Streets',
-                    'Fourth Avenue','Seventh Avenue','15th Street-Prospect Park',
+                    'Fourth Avenue','Seventh Avenue station','15th Street-Prospect Park',
                     'Fort Hamilton Parkway','Church Avenue']
     },
     {
