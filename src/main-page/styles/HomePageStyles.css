@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+}
+
+
+/* Header  */
+.nav-logo-home {
+    width: 12em;
+    height: 12em;
+}
+
+.header-home {
+    display: flex;
+    background-color: white;
+}
+
+.header-home-title {
+    font-size: 4.5em;
+    margin-left: 6em;
+    margin-top: 1em;
+}
+
+.header-home-buttons {
+    margin-top: 5em;
+    margin-left: 20em;
+}
+
+.header-home-button-log {
+    background-color: lightskyblue;
+    padding: 0em 2em;
+    margin-top: 0.4em;
+    font-size: 1.5em;
+    border-radius: 12pt;
+    cursor: pointer;
+}
+
+.header-home-button-sign {
+    background-color: lightskyblue;
+    padding: 0em 1.85em;
+    font-size: 1.5em;
+    border-radius: 12pt;
+    cursor: pointer;
+}
+
+/*^Header  */
+
+
+/* Body */
+.homePage-Loading {
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+.home-main-filter {
+    display: flex;
+    margin-left: 2em;
+}
+
+.homePage-trainLogos {
+    display: grid;
+    grid-template: auto auto /repeat(15, 1fr);
+    gap: 10px;
+}
+
+.homePage-overall-rating-section {
+    display: flex;
+}
+
+.homePage-stars {
+    margin-top: 1em;
+}
+
+.homePage-grid-images {
+    margin: 0em 1em;
+    grid-template: auto auto / repeat(3, 1fr);
+    display: grid;
+    gap: 20px;
+
+}
+
+
+/* ^Body */

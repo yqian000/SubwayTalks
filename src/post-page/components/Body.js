@@ -74,7 +74,7 @@ function Body(props){
         isUp: false, 
         isDown: false,
         comments: [],
-        station_id: "62635fec16afcb1ab116ee06"
+        station_id: ""
     });
 
    
@@ -256,7 +256,9 @@ function Body(props){
         .then( function(response){
             console.log(response); 
             // TODO: Navigate to the corresponding station
-            navigate( "/success", {state:statePost});
+            navigate( "/station", {state:{
+                station_id: stationId
+            }});
         })
         .catch( err => console.log(err));
         
