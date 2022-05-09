@@ -2,11 +2,8 @@ export default [
     {
         id: '1',
         train: 'l',
-        stations: [ 
-                    '14th Street–Eighth Avenue station','14th Street–Sixth Avenue station',
-                    '14 Street Union Square Station','Third Avenue station','First Avenue station',
-                    'Bedford Avenue station','Metropolitan Avenue–Lorimer Street station',
-                    'Graham Avenue station','Grand Street station',
+        stations: [ '14 Street Union Square Station','Third Avenue station','First Avenue station',
+                    'Bedford Avenue station''Graham Avenue station','Grand Street station',
                     'Montrose Avenue station','Morgan Avenue station',
                     'Jefferson Street station', 'DeKalb Avenue station',
                     'Myrtle–Wyckoff Avenues station', 'Halsey Street station',
@@ -27,7 +24,7 @@ export default [
                     'Clinton–Washington Avenues station','Fulton Street station',
                     'Hoyt–Schermerhorn Streets station','Bergen Street station',
                     'Carroll Street station','Smith–Ninth Streets station',
-                    'Fourth Avenue–Ninth Street station','Seventh Avenue station','15th Street–Prospect Park station',
+                    'Seventh Avenue station','15th Street–Prospect Park station',
                     'Fort Hamilton Parkway station','Church Avenue station']
     },
     {
@@ -43,14 +40,14 @@ export default [
                     '59th Street–Columbus Circle station','50th Street station','Times Square–42nd Street–Port Authority Bus Terminal station',
                     '34th Street–Penn Station','28th Street station','23rd Street station',
                     '18th Street station','14th Street-Sixth Avenue station','Christopher Street–Sheridan Square station',
-                    'Houston Street station','Canal Street station','Franklin Street station','Chambers Street station',
+                    'Houston Street station','Canal Street station','Franklin Street station',
                     'WTC Cortlandt station','Rector Street station','South Ferry–Whitehall Street station']
     },
     {
         id: '4',
         train: '2',
         stations: [ 'Wakefield–241st Street station','Nereid Avenue station','233rd Street station',
-                    '225th Street station','219th Street station','Gun Hill Road station','Burke Avenue station',
+                    '225th Street station','219th Street station','Burke Avenue station',
                     'Allerton Avenue station','Pelham Parkway station','Bronx Park East station',
                     'East 180th Street station','West Farms Square–East Tremont Avenue station',
                     '174th Street station','Freeman Street station','Simpson Street station','Intervale Avenue station',
@@ -160,8 +157,7 @@ export default [
                     'Aqueduct Racetrack station','Aqueduct–North Conduit Avenue station',
                     'Howard Beach–JFK Airport station','Broad Channel station','Beach 67th Street station',
                     'Beach 60th Street station','Beach 44th Street station','Beach 36th Street station',
-                    'Beach 25th Street station','Far Rockaway–Mott Avenue station','Beach 90th Street station',
-                    'Beach 98th Street station','Beach 105th Street station','Rockaway Park–Beach 116th Street station']
+                    'Beach 25th Street station','Far Rockaway–Mott Avenue station']
     },
     {
         id: '11',
@@ -218,19 +214,14 @@ export default [
     {
         id: '14',
         train: 'e',
-        stations: [ 'Jamaica–179th Street station','169th Street station','Parsons Boulevard station',
-                    'Chamber Street station','Jamaica Center–Parsons–Archer station',
-                    'Sutphin Boulevard–Archer Avenue–JFK Airport station','Jamaica–Van Wyck station',
-                    'Briarwood station','Kew Gardens–Union Turnpike station','75th Avenue station',
-                    'Forest Hills–71st Avenue station','67th Avenue station','63rd Drive–Rego Park station',
-                    'Woodhaven Boulevard station','Grand Avenue–Newtown','Elmhurst Avenue station',
-                    'Jackson Heights–Roosevelt Avenue–74th Street station','65th Street station','Northern Boulevard station',
-                    '46th Street station','Steinway Street station','36th Street station','Queens Plaza station',
-                    'Court Square–23rd Street station','Lexington Avenue–51st Street station',
+        stations: [ 'Jamaica Center–Parsons–Archer station','Sutphin Boulevard–Archer Avenue–JFK Airport station',
+                    'Jamaica–Van Wyck station','Briarwood station','Kew Gardens–Union Turnpike station',
+                    '75th Avenue station','Forest Hills–71st Avenue station','Jackson Heights–Roosevelt Avenue–74th Street station',
+                    'Queens Plaza station','Court Square–23rd Street station','Lexington Avenue–51st Street station',
                     'Fifth Avenue–53rd Street station','Seventh Avenue–53rd Street station','50th Street station',
                     'Times Square–42nd Street–Port Authority Bus Terminal station','34th Street–Penn Station',
                     '23rd Street station','14th Street-Eighth Avenue station','West Fourth Street–Washington Square station',
-                    'Spring Street station','Canal Street station','World Trade Center station' ]
+                    'Spring Street station','Canal Street station']
     },
     {
         id: '15',
@@ -241,9 +232,8 @@ export default [
                     'Jackson Heights–Roosevelt Avenue–74th Street station','21st Street–Queensbridge station',
                     'Roosevelt Island station','Lexington Avenue–63rd Street station',
                     '57th Street station','47th–50th Streets–Rockefeller Center station',
-                    '42nd Street–Bryant Park station','34th Street–Herald Square station',
-                    '23rd Street station','14th Street-Sixth Avenue station',
-                    'West Fourth Street–Washington Square station','Broadway–Lafayette Street station',
+                    '34th Street–Herald Square station','23rd Street station','14th Street-Sixth Avenue station',
+                    'West Fourth Street–Washington Square station',
                     'Second Avenue station','Delancey Street station','East Broadway station',
                     'York Street station','Jay Street–MetroTech station','Bergen Street station',
                     'Carroll Street station','Smith–Ninth Streets station',
@@ -257,14 +247,14 @@ export default [
         id: '16',
         train: 'j',
         stations: [ 'Jamaica Center–Parsons–Archer station','Sutphin Boulevard–Archer Avenue–JFK Airport station',
-                    '121st Street station','111th Street station','104th Street station','Woodhaven Boulevard station',
+                    '121st Street station','104th Street station','Woodhaven Boulevard station',
                     '85th Street–Forest Parkway station','75th Street–Elderts Lane station',
                     'Cypress Hills station','Crescent Street station','Norwood Avenue station','Cleveland Street station',
                     'Van Siclen Avenue station','Alabama Avenue station','Broadway Junction station',
                     'Chauncey Street station','Halsey Street station','Gates Avenue station','Kosciuszko Street station',
                     'Myrtle Avenue station','Flushing Avenue station','Lorimer Street station',
-                    'Hewes Street station','Marcy Avenue station','Essex Street station','Bowery station','Canal Street station',
-                    'Chambers Street station','Fulton Street station','Broad Street station' ]
+                    'Hewes Street station','Marcy Avenue station','Bowery station','Canal Street station',
+                    'Fulton Street station','Broad Street station' ]
     },
     {
         id: '17',
@@ -277,7 +267,7 @@ export default [
                     'Fifth Avenue station','47th–50th Streets–Rockefeller Center station',
                     '42nd Street–Bryant Park station','34th Street–Herald Square station','23rd Street station',
                     '14th Street-Sixth Avenue station','West Fourth Street–Washington Square station',
-                    'Broadway–Lafayette Street station','Essex Street station','Marcy Avenue station','Hewes Street station',
+                    'Marcy Avenue station','Hewes Street station',
                     'Lorimer Street station','Flushing Avenue station','Myrtle Avenue station',
                     'Central Avenue station','Knickerbocker Avenue station','Myrtle–Wyckoff Avenues station',
                     'Seneca Avenue station','Forest Avenue station','Fresh Pond Road station', 
@@ -291,10 +281,8 @@ export default [
                     '39th Avenue station','Queensboro Plaza station','Lexington Avenue–59th Street station',
                     'Fifth Avenue–59th Street station','57th Street–Seventh Avenue station',
                     '49th Street station','Times Square–42nd Street–Port Authority Bus Terminal station','34th Street–Herald Square station',
-                    '28th Street station','23rd Street station','14 Street Union Square Station','Canal Street station',
-                    'Atlantic Avenue–Barclays Center station','36th Street station','59th Street–Fourth Avenue station',
-                    'Eighth Avenue station','Fort Hamilton Parkway station',
-                    'New Utrecht Avenue station','18th Avenue station',
+                    '14 Street Union Square Station','Canal Street station','Atlantic Avenue–Barclays Center station',
+                    'Eighth Avenue station','Fort Hamilton Parkway station','18th Avenue station',
                     '20th Avenue station','Bay Parkway station','Kings Highway station','Avenue U station',
                     '86th Street station','Coney Island–Stillwell Avenue station' ]
     },
@@ -304,8 +292,8 @@ export default [
         stations: [ '96th Street station','86th Street station','72nd Street station',
                     'Lexington Avenue–63rd Street station','57th Street–Seventh Avenue station',
                     'Times Square–42nd Street–Port Authority Bus Terminal station','34th Street–Herald Square station',
-                    '14 Street Union Square Station','Canal Street station',
-                    'DeKalb Avenue station','Atlantic Avenue–Barclays Center station','Seventh Avenue–Flatbush Avenue station',
+                    '14 Street Union Square Station',
+                    'Atlantic Avenue–Barclays Center station',
                     'Prospect Park station','Parkside Avenue station','Church Avenue station','Beverley Road station',
                     'Cortelyou Road station','Newkirk Plaza station','Avenue H station','Avenue J station','Avenue M station',
                     'Kings Highway station','Avenue U station','Neck Road station','Sheepshead Bay station',
@@ -324,15 +312,13 @@ export default [
                     'Lexington Avenue–59th Street station','Fifth Avenue–59th Street station',
                     '57th Street–Seventh Avenue station','49th Street station',
                     'Times Square–42nd Street–Port Authority Bus Terminal station','34th Street–Herald Square station',
-                    '28th Street station','23rd Street station','14 Street Union Square Station',
+                    '28th Street station','14 Street Union Square Station',
                     'Eighth Street–New York University station','Prince Street station',
-                    'Canal Street station','City Hall station','Cortlandt Street station','Rector Street station',
-                    'Whitehall Street–South Ferry','Court Street station','Jay Street–MetroTech station',
+                    'Canal Street station','City Hall station','Rector Street station','Jay Street–MetroTech station',
                     'DeKalb Avenue station','Atlantic Avenue–Barclays Center station',
                     'Union Street station','Fourth Avenue-Ninth Street station','Prospect Avenue station','25th Street station',
-                    '36th Street–Fourth Avenue station','45th Street station','53rd Street station',
-                    '59th Street–Fourth Avenue station','Bay Ridge Avenue station','77th Street station',
-                    '86th Street station','Bay Ridge–95th Street station' ]
+                    '36th Street–Fourth Avenue station','45th Street station','Bay Ridge Avenue station',
+                    '77th Street station','86th Street station','Bay Ridge–95th Street station' ]
     },
     {
         id: '21',
