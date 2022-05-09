@@ -3,7 +3,7 @@ export default [
         id: '1',
         train: 'l',
         stations: [ '14 Street Union Square Station','Third Avenue station','First Avenue station',
-                    'Bedford Avenue station''Graham Avenue station','Grand Street station',
+                    'Bedford Avenue station','Graham Avenue station','Grand Street station',
                     'Montrose Avenue station','Morgan Avenue station',
                     'Jefferson Street station', 'DeKalb Avenue station',
                     'Myrtle–Wyckoff Avenues station', 'Halsey Street station',
