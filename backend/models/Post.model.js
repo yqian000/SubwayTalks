@@ -34,7 +34,7 @@ const postSchema = new Schema(
         },
         date: {
         type: String,
-        default: (new Date()).toDateString()
+        default: (new Date()).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"long", day:"numeric"}) 
          }, 
          numberOfVotes:{
              type: Number,
