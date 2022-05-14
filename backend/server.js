@@ -33,10 +33,12 @@ const port = process.env.PORT || 5000;
 const trainRoutes = require('./routers/Train.router');
 const postRoutes  = require( './routers/Post.router');
 const stationRoutes = require('./routers/Station.router'); 
+const userRoutes = require( './routers/User.router');
 
 app.use('/trains', trainRoutes);
 app.use('/posts', postRoutes);
 app.use('/stations', stationRoutes);
+app.use('/users', userRoutes);
 //------------------------------------------------------
 
 
