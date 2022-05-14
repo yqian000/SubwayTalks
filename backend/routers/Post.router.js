@@ -67,10 +67,12 @@ router.route('/get/post/:station_id').get( (req,res) =>{
 // ^ADDED
 
 
+
 router.route('/delete/:id').delete( (req,res) =>{
     Post.findByIdAndDelete(req.params.id)
     .then( () => res.json('Post deleted'))
     .catch( err => res.status(400).json('Error: ' + err) ) ; 
+
 })
 
 

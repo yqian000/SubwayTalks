@@ -9,9 +9,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 
 
-
-
-
 function ButtonImage(props){
 
     const url  = props.url

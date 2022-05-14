@@ -5,7 +5,7 @@ import {BiMessageDetail} from "react-icons/bi";
 import {BiUpvote} from 'react-icons/bi';
 import {BiDownvote} from 'react-icons/bi';
 
-
+import Rating from '@mui/material/Rating';
 function CardPost(props){
 
     // TODO: We need to received the arguments by props, same for handling States
@@ -63,10 +63,42 @@ function CardPost(props){
                     <div className='posted-by-section-station-page'>
                         <h4> Posted by u/{username} on {datePost}</h4>
                     </div>
+
+                    <div className='StationPage-overall-rating-section'>
+                        <h2> Overall rating: </h2>               
+                        <div className='homePage-stars'>
+                            <Rating  
+                                name="read-only" 
+                                precision={0.5}
+                                value={ props.overallRating} 
+                                readOnly
+                                size='large' 
+                            />
+                        </div>
+
+                       
+
+                    </div>
+
+                    <div className='StationPage-overall-rating-section'>
+                        <h2> Danger level: </h2>               
+                        <div className='StationPage-danger-level'>
+                            <Rating  
+                                name="read-only" 
+                                precision={0.5}
+                                value={ props.dangerLevel} 
+                                readOnly
+                                size='large' 
+                            />
+                        </div>
+                    </div>
+
+
                     <div className='title-of-post-station-page'>
                         <h2> {title}</h2> 
+                        
                     </div>
-                 
+                    
                 </div>
                
 

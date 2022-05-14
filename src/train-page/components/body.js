@@ -153,6 +153,8 @@ function Body(props){
                     isDown = {post.isDown}
                     title = {post.title}
                     bodyContext = {post.body}
+                    overallRating = {Number(post.overallRating)}
+                    dangerLevel = {Number(post.dangerLevel)}
                     numberOfComments = {post.numberOfComments}
                 />);
     } );

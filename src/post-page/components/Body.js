@@ -222,53 +222,78 @@ function Body(props){
         event.stopPropagation();
 
         // Find the corresponding station id
-        //  axios.get(`http://localhost:5000/posts/get/post/${props.stationId}`)
-        // .then( function(response){
-        //     setPostCards( response.data) ; 
-        // } )
-        // .catch( err => err);
-        // '/get/stationBy/:stationTrain/:stationName'
-        let stationId;
+        let stationId, stationName, stationUrl, stationTrains, stationBorough;
         axios.get(`http://localhost:5000/stations/get/stationBy/${statePost.train.toUpperCase()}/${statePost.station}`)
         .then( function(response){
-            stationId = response.data[0]._id
+            // Station info gathered
+            stationId = response.data[0]._id;   stationName = response.data[0].name;
+            stationUrl = response.data[0].url;  stationTrains = response.data[0].trains;
+            stationBorough = response.data[0].borough;
 
-            console.log(stationId);
+            //console.log(stationId);
+                // Update the average station ratings
+                axios.get(`http://localhost:5000/posts/get/post/${stationId}`)
+                .then( function(response){
+                    //console.log( response.data);
+
+                    let runningSumDanger = 0;   let runningSumStars = 0; 
+                    for (let i = 0 ; i< response.data.length; i++)
+                    {
+                        runningSumDanger += Number( response.data[i].dangerLevel);
+                        runningSumStars += Number( response.data[i].overallRating);
+                    }
+                    runningSumDanger += Number( statePost.dangerLevel) ; runningSumStars += Number(  statePost.satisfactionLevel); 
+                    let averageDanger = runningSumDanger/(response.data.length + 1); 
+                    let averageStars = runningSumStars/( response.data.length + 1);
+                    
+                    axios.post( `http://localhost:5000/stations/update/${stationId}`, 
+                    {
+                        name: stationName,
+                        url: stationUrl, 
+                        trains: stationTrains,
+                        borough: stationBorough,
+                        overallStars: averageStars,
+                        dangerLevel: averageDanger,
+                    })
+                    .then(function(response){                                
+                            // Send the post data to the database
+                            axios.post("http://localhost:5000/posts/add_post", 
+                                {
+                                    username: statePost.userName,
+                                    trainName: statePost.train,
+                                    stationName: statePost.station,
+                                    title: statePost.title,
+                                    body: statePost.bodyContext,
+                                    overallRating: statePost.satisfactionLevel,
+                                    dangerLevel: statePost.dangerLevel,
+                                    numberOfVotes: statePost.numberOfVotes,
+                                    numberOfComments: statePost.numberOfComments,
+                                    isUp: statePost.isUp,
+                                    isDown: statePost.isDown,
+                                    comments: statePost.comments,
+                                    station_id: stationId
+                                },
+                            )
+                            .then( function(response){
+                                //console.log(response); 
+
+                                // Go to the corresponding station
+                                navigate( "/station", {state:{
+                                station_id: stationId
+                            }});
+                            })
+                            .catch( err => console.log(err));
+                    }
+
+
+
+                    )
+                })
             
-            // Send the data to the database
-        axios.post("http://localhost:5000/posts/add_post", 
-                {
-                    username: statePost.userName,
-                    trainName: statePost.train,
-                    stationName: statePost.station,
-                    title: statePost.title,
-                    body: statePost.bodyContext,
-                    overallRating: statePost.satisfactionLevel,
-                    dangerLevel: statePost.dangerLevel,
-                    numberOfVotes: statePost.numberOfVotes,
-                    numberOfComments: statePost.numberOfComments,
-                    isUp: statePost.isUp,
-                    isDown: statePost.isDown,
-                    comments: statePost.comments,
-                    station_id: stationId
-                },
-        )
-        .then( function(response){
-            console.log(response); 
-            // TODO: Navigate to the corresponding station
-            navigate( "/station", {state:{
-                station_id: stationId
-            }});
-        })
-        .catch( err => console.log(err));
-        
-
-
-        }
+            }
         )
 
         
-      
     }
     // ^Submit button handle
 

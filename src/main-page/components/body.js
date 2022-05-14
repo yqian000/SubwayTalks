@@ -38,8 +38,7 @@ function Body(){
                 setStation( response.data.map( (stationObj)=>{
                     return (<div> 
                                 <ButtonImage
-                                    key = {stationObj._id}
-                                    id = {stationObj._id} 
+                                    key = {stationObj._id} 
                                     url = {stationObj.url}
                                     name = {stationObj.name}
                                     borough = {stationObj.borough}
@@ -82,7 +81,7 @@ function Body(){
                     />
                 </div>:
                 <div className='homePage-grid-images'>
-                {stationState}
+                    {stationState}
                 </div>        
             } 
 

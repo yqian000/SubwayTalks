@@ -281,38 +281,48 @@
     margin-top: -1em;
 }
 
+/* Rating section */
+.StationPage-overall-rating-section {
+    display: flex;
+    margin-top: -2em;
+    margin-left: 1em;
+}
+
+.StationPage-danger-level {
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+/* ^Rating section */
 .title-of-post-station-page {
     font-size: 1.5em;
     margin-left: 0.65em;
-    margin-top: -1em;
+    margin-top: -2em;
 }
 
 
 /* body of post with only one unit of up vote */
 .body-of-post-one-unit-station-page {
-    margin-left: 1.2em;
-    margin-top: -1em;
+    margin-left: 1.35em;
+        margin-top: -2em;
     font-size: 2em;
 }
-
 /* ^body of post with only one unit of up vote */
 
 /* body of post with only two units of up vote */
 .body-of-post-two-units-station-page {
-    margin-left: 1.5em;
-    margin-top: -1em;
+    margin-left: 1.45em;
+        margin-top: -2em;
     font-size: 2em;
 }
-
 /* ^body of post with only two units of up vote */
 
 /* body of post with only three units of up vote */
 .body-of-post-three-units-station-page {
-    margin-left: 2em;
-    margin-top: -1em;
+    margin-left: 2.1em;
+        margin-top: -2em;
     font-size: 2em;
 }
-
 /* ^body of post with only three units of up vote */
 
 /* body of post with only four units of up vote */
@@ -321,7 +331,6 @@
     margin-top: -1em;
     font-size: 2em;
 }
-
 /* ^body of post with only four units of up vote */
 
 
