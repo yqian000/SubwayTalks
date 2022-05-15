@@ -64,7 +64,9 @@ function Body(){
     }, [navigate]); // will run once since parameter [] is given
 
 
+    // Filters
     function handleFilters(filter) {
+        setCircular(true);
         axios.get( `http://localhost:5000/stations/` + filter)
         .then( function(response){
                 
@@ -84,7 +86,8 @@ function Body(){
                                                 key= {nanoid()}
                                         />
                                     })}
-                                    handleFilters = {()=>handleFilters(stationObj._id)}
+                                    handleNavigateToStation = {()=>{navigate( "/station", {state: {
+                                        station_id: stationObj._id}});}}
                                 />
                     </div> )
 
