@@ -64,6 +64,11 @@ router.route( '/update/:id').post( (req, res)=>{
         user.username = req.body.username;
         user.password = req.body.password; 
         user.votes = req.body.votes; 
+
+        user.save()
+        .then( ()=> res.json('User updated!') )
+        .catch( err => res.status(400).json('Error: ' + err)) ;
+
     })
     .catch( err => res.status(400).json('Error: ' + err));
 });
