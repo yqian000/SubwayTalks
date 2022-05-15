@@ -12,14 +12,17 @@ import Body from './components/body';
 
 function TrainPage(){
     
-    // TODO: We need to gather the username, and userId as well by using Location
+    // TODO: We need to gather the logged username, and userId as well by using Location
     const location = useLocation();
     const {station_id} = location.state;
-    const username = "username001"; 
-    const userId = "1234567";
-
-
     
+    // const username = "randomUser01"; 
+    // const userId = "627fb56b137ee5d5f9de4ea3";
+
+    const username = "otherUser01"; 
+    const userId = "627fcfc1137ee5d5f9de4ea6";
+
+
     // Store the coming data at the following state
     const [stationState, setStation] = React.useState([]);
     // Gather station data from MongoDB

@@ -1,16 +1,12 @@
 import React from 'react'; 
 
-
 import { useNavigate} from "react-router-dom";
 import { BiMeteor } from "react-icons/bi";
 import {BiLineChart} from "react-icons/bi";
 
 import axios from 'axios';
 
-
 import CardPost from "../components/body-card-post";
-
-
 import '../styles/styleTrainPage.css';
 
 
@@ -20,22 +16,8 @@ function Body(props){
     // filter comments (newest and top up voted)
     const redditIcon = require("../images/reddit-icon.png");
     const redditIconStanding = require("../images/reddit-icon-standing.jpg");
-    let navigate =  useNavigate();
-    function handleNavigateBackHome(){
-        navigate( "/", {state: {
-            username: props.username,
-            userId: props.userId,
-        },});
-    }
     // ^ Reddit icon Pictures
-
-    // Create Post section, should send user to `Make a Post Page`
-    function handleCreatePost(){
-        navigate( "/make-a-post", );
-    }
-    // ^ Create Post section, should send user to `Make a Post Page`
-
-
+    
     // Filter usage section, send the user to `.../new` or `.../top`
     function handleNewFilter(){
         console.log("Handle New");
@@ -43,93 +25,68 @@ function Body(props){
     function handleTopFilter(){
         console.log("Handle Top");
     }
-
     // ^ Filter usage section, send the user to `.../new` or `.../top`
 
+
     // Post Section
-    const [statePostCards, setPostCards] = React.useState([]); 
-        
+    const [statePostCards, setPostCards] = React.useState([]);         
     function handlePostCardUpVote(id){
-        setPostCards( (oldPosts)=> {
-            let tempVotes = 1729;
+        //console.log(id); 
+        setPostCards( (oldPosts)=>{
+            let tempVotes = 1729; 
 
-            return oldPosts.map( (post) =>{
-
+            return oldPosts.map( (post)=>{
                 if(post.isDown === false && post.isUp === false){
-                        tempVotes = post.numberOfVotes +1;
-                    }
-                else if( post.isDown === false && post.isUp === true){ 
-                        tempVotes =  post.numberOfVotes - 1;
-                    }
-                else if( post.isDown === true && post.isUp === false){
-                        tempVotes = post.numberOfVotes + 2;
-                    }
-
-                // Backend update
-                if( post._id === id){
-                        axios.post(`http://localhost:5000/posts/update/${post._id}`, 
-                                    {
-                                    ...post,
-                                    numberOfVotes: tempVotes,
-                                    isUp: !post.isUp,
-                                    isDown: false
-                                    },
-                                )
+                        tempVotes = post.numberOfVotes + 1; 
+                } else if( post.isDown === false && post.isUp === true){
+                    tempVotes = post.numberOfVotes -1; 
+                } else if( post.isDown === true && post.isUp === false){
+                    tempVotes = post.numberOfVotes + 2; 
                 }
-                // ^ Backend update
 
-                // Show changes to the frontend
+                // Show changes in the frontend
                 return post._id === id?
-                       {...post,
-                            numberOfVotes: tempVotes,
-                            isUp: !post.isUp,
-                            isDown: false,                              
-                        }:
-                       post ;
+                    {
+                        ...post,
+                        numberOfVotes: tempVotes,
+                        isUp: !post.isUp,
+                        isDown: false,
+                    }:
+                    post;
             });
+
         });
+
     }
 
     function handlePostCardDownVote(id){
-        setPostCards( (oldPosts)=> {
-            let tempVotes = 1729;
+        
+        //console.log(id); 
 
-            return oldPosts.map( (post) =>{
+        setPostCards( (oldPosts)=>{
+            let tempVotes = 1729; 
 
+            return oldPosts.map( (post)=>{
                 if(post.isDown === false && post.isUp === false){
-                        tempVotes = post.numberOfVotes -1;
-                    }
-                else if( post.isDown === false && post.isUp === true){ 
-                        tempVotes =  post.numberOfVotes - 2;
-                    }
-                else if( post.isDown === true && post.isUp === false){
-                        tempVotes = post.numberOfVotes + 1;
-                    }
-
-                // Backend update
-                if( post._id === id){
-                        axios.post(`http://localhost:5000/posts/update/${post._id}`, 
-                                    {
-                                    ...post,
-                                    numberOfVotes: tempVotes,
-                                    isUp: false,
-                                    isDown: !post.isDown,
-                                    },
-                                )
+                    tempVotes = post.numberOfVotes -1;
+                }else if(post.isDown === false && post.isUp === true){
+                    tempVotes = post.numberOfVotes -2; 
+                }else if( post.isDown === true && post.isUp === false){
+                    tempVotes = post.numberOfVotes + 1; 
                 }
-                // ^Backend update
-                
+
                 // Show changes to the frontend
                 return post._id === id?
-                       {...post,
-                            isUp: false, 
-                            numberOfVotes: tempVotes,
-                            isDown: !post.isDown,
-                                                     
-                        }:
-                       post ;
+                       {
+                           ...post,
+                           isUp: false,
+                           numberOfVotes: tempVotes,
+                           isDown: !post.isDown
+                       }:
+                       post;
             });
         });
+              
     }
     
     
@@ -138,14 +95,47 @@ function Body(props){
         // Gather all posts related to that station
         // the query is performed based on stationId
         // It will only run once since stationId is static
+
         axios.get(`http://localhost:5000/posts/get/post/${props.stationId}`)
         .then( function(response){
-            setPostCards( response.data) ; 
+
+            const cardData = response.data ; 
+                // Get the posts in which the user has up/down voted
+                // and display the changes
+                axios.get(`http://localhost:5000/users/get/${props.userId}`)
+                .then( function(response){
+                    const userVotes = response.data.votes;
+
+                    const postsData = cardData.map( (card)=>{
+                        let tempIsUp; 
+                        let tempIsDown; 
+                        return userVotes.some( (vote) =>{
+                            tempIsUp = vote.isUp;
+                            tempIsDown = vote.isDown;
+                            return vote.postId === card._id
+                        })?
+                                {
+                                    ...card,
+                                    isUp: tempIsUp,
+                                    isDown: tempIsDown,
+                                }:
+                                card;
+                    });
+
+                    setPostCards( postsData) ; 
+                    
+                });
+
+            //setPostCards( response.data) ; 
+            
+            
         } )
         .catch( err => err);
+        
 
 
-    },[props.stationId]);
+        
+    },[props.stationId, props.userId]);
     
     
     const postCards = statePostCards.map( (post) =>{
@@ -166,6 +156,72 @@ function Body(props){
                 />);
     } );
     // ^Post Section
+
+    function updateDatabase(){
+            //statePostCards
+
+            axios.get(`http://localhost:5000/users/get/${props.userId}`)
+            .then( function(response){
+                const tempUsername = response.data.username; 
+                const tempPassword = response.data.password; 
+                const userVotes = response.data.votes; 
+
+                const oldVotes = userVotes.filter( vote => vote.stationId !== props.stationId); 
+                const newVotes = statePostCards.map( (post)=>{
+                    return {
+                        postId: post._id, 
+                        isUp: post.isUp,
+                        isDown: post.isDown, 
+                        stationId: props.stationId
+                    };
+                } );
+                const userNewVotes = [...oldVotes, ...newVotes]; 
+                //console.log(userNewVotes);  
+
+                axios.post(`http://localhost:5000/users/update/${props.userId}`, 
+                    {
+                        username: tempUsername,
+                        password: tempPassword,
+                        votes: userNewVotes,
+                    })
+                .then(()=>{
+
+                    statePostCards.map( (post)=>{
+                        axios.post( `http://localhost:5000/posts/update/${post._id}`,
+                        {
+                            ...post,
+                            numberOfVotes: post.numberOfVotes,
+                            isUp: false,
+                            isDown: false,
+                        },
+                         );
+
+                        return post; 
+                    });
+                })
+
+
+            })
+
+    }
+
+    // Navigate home 
+    let navigate =  useNavigate();
+    function handleNavigateBackHome(){
+        updateDatabase();
+        
+        navigate( "/", {state: {
+            username: props.username,
+            userId: props.userId,
+        },});
+    }
+    
+    // Create Post section, should send user to `Make a Post Page`
+    function handleCreatePost(){
+        updateDatabase();
+        navigate( "/make-a-post", );
+    }
+    // ^ Create Post section, should send user to `Make a Post Page`
 
 
     return (
