@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid'
 
 import ButtonImage from './button-image';
 import CircularProgress from '@mui/material/CircularProgress';
+import Button from '@mui/material/Button';
 import { useNavigate} from "react-router-dom";
 
 function Body(){
@@ -62,13 +63,44 @@ function Body(){
 
     }, [navigate]); // will run once since parameter [] is given
 
-   
 
+    function handleFilters(filter) {
+        axios.get( `http://localhost:5000/stations/` + filter)
+        .then( function(response){
+                
+                setStation( response.data.map( (stationObj)=>{
+                    return (<div> 
+                                <ButtonImage
+                                    key = {stationObj._id} 
+                                    url = {stationObj.url}
+                                    name = {stationObj.name}
+                                    borough = {stationObj.borough}
+                                    overallStars = {stationObj.overallStars}
+                                    dangerLevel = {stationObj.dangerLevel}
+                                    trains = {stationObj.trains.map( (trainLogo)=>{
+                                        return <img 
+                                                src={require(`../train_logos/${trainLogo.toLowerCase()}-train-logo.png`)}
+                                                alt=""
+                                                key= {nanoid()}
+                                        />
+                                    })}
+                                    handleFilters = {()=>handleFilters(stationObj._id)}
+                                />
+                    </div> )
+
+                } )  );
+                setCircular(false);
+        } )
+        .catch( err => err);
+    }
     return (
         <main>
             
             <div className='home-main-filter'> 
                 <h1> Filter: </h1>
+                <Button variant="text" onClick={() => handleFilters('')}>All</Button>
+                <Button variant="text" onClick={() => handleFilters('topRated')}>Top Rated</Button>
+                <Button variant="text" onClick={() => handleFilters('topDanger')}>Top dangerous</Button>
             </div>
 
             {

@@ -7,6 +7,18 @@ router.route('/').get( (req,res) => {
     .catch( err => res.status(400).json('Error: ' + err));
 } );
 
+router.route('/topRated').get( (req,res) => {
+    Station.find().sort({'overallStars': -1})
+    .then( stations => res.json(stations))
+    .catch( err => res.status(400).json('Error: ' + err));
+} );
+
+router.route('/topDanger').get( (req,res) => {
+    Station.find().sort({'dangerLevel': -1})
+    .then( stations => res.json(stations))
+    .catch( err => res.status(400).json('Error: ' + err));
+} );
+
 
 router.route( '/get/:id').get( (req,res) =>{
     Station.findById( req.params.id)
