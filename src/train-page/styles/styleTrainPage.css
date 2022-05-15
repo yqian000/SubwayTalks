@@ -82,6 +82,7 @@
     width: 4em;
     height: 4em;
     margin-right: 1em;
+    cursor: pointer;
 }
 
 .create-post {

@@ -20,10 +20,16 @@ function Body(props){
     // filter comments (newest and top up voted)
     const redditIcon = require("../images/reddit-icon.png");
     const redditIconStanding = require("../images/reddit-icon-standing.jpg");
+    let navigate =  useNavigate();
+    function handleNavigateBackHome(){
+        navigate( "/", {state: {
+            username: props.username,
+            userId: props.userId,
+        },});
+    }
     // ^ Reddit icon Pictures
 
     // Create Post section, should send user to `Make a Post Page`
-    let navigate =  useNavigate();
     function handleCreatePost(){
         navigate( "/make-a-post", );
     }
@@ -37,6 +43,7 @@ function Body(props){
     function handleTopFilter(){
         console.log("Handle Top");
     }
+
     // ^ Filter usage section, send the user to `.../new` or `.../top`
 
     // Post Section
@@ -165,7 +172,11 @@ function Body(props){
         <main>
             <div className='body-post'>
 
-                    <img  className = 'reddit-icon' src= {redditIcon} alt = ''/>
+                    <img  className = 'reddit-icon' 
+                          src= {redditIcon} 
+                          alt = 'reddit icon'
+                          onClick= {handleNavigateBackHome}      
+                    />
 
                     <input 
                             className='create-post'

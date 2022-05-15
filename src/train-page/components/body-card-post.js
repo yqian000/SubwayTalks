@@ -117,7 +117,7 @@ function CardPost(props){
                     <p> {bodyContext}</p>
             </div>
 
-
+{/* 
             <div className='footer-of-post-station-page'>
                     <BiMessageDetail size={30}/>
                     <p>  
@@ -128,7 +128,7 @@ function CardPost(props){
                         } 
                     
                     </p>
-            </div>
+            </div> */}
 
 
         </div>
