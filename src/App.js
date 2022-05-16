@@ -7,8 +7,8 @@ import TrainPage from './train-page/TrainPage';
 import PostPage from './post-page/PostPage';
 
 import DisplayInfo from './post-page/components/displayInfoGathered';
-import Signup from './main-page/components/signup/signup';
-import Signin from './main-page/components/signin/signin';
+import Signup from './signup/signup';
+import Signin from './signin/signin';
 
 function App() {
   return (
