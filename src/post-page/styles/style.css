@@ -3,119 +3,28 @@ body {
     background-color: antiquewhite;
 }
 
-.nav--logo {
-    width: 5em;
-    height: 5em;
+/* Header */
+
+.nav-logo-postPage {
+    width: 12em;
+    height: 12em;
+    cursor: pointer;
 }
 
-.nav {
+.header-postPage {
     display: flex;
-    height: 70px;
-    padding: 20px 36px;
-    margin-bottom: 0;
     background-color: white;
-
 }
 
-.dropdown--button {
-    background-color: white;
-    font-family: "Open-Sans";
-    font-weight: bold;
-    font-size: 2em;
-    border-width: 0;
-    margin-top: 0.5em;
-}
-
-
-.dropdown--button:hover {
-    background-color: whitesmoke;
-}
-
-
-.dropdown-content {
-    display: block;
-    position: absolute;
-    background-color: white;
-    width: 15em;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-}
-
-.dropdown-content a {
-    display: block;
-    font-family: "Open-Sans";
-    color: #000000;
-    font-size: 1.4em;
-    padding: 5px;
-    text-decoration: none;
-}
-
-.dropdown-content a:hover {
-    color: #FFFFFF;
-    background-color: #00A4BD;
-}
-
-.dropdown-content>p {
-    color: gray;
-    padding-top: 5px;
-    padding-bottom: 0px;
-    margin-bottom: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 1.4em;
-}
-
-.filter {
-    margin-top: 15px;
-    margin-left: 5px;
-    border-color: #00A4BD;
-    height: 2em;
-    width: 80%;
-}
-
-.search-icon {
-    height: 1.8em;
-    width: 1.8em;
-    margin-left: 2em;
-    margin-top: 1.7em;
-}
-
-.search-bar {
-    height: auto;
-    display: flex;
-}
-
-.search {
-    height: 2.3em;
-    width: 60em;
-    margin-top: 1.5em;
-}
-
-.search:active,
-.search:hover,
-.search:focus {
-    border-color: #00A4BD;
-}
-
-.nav-icon-section {
+.header-title-postPage {
+    font-size: 4.5em;
+    margin-left: 6em;
     margin-top: 1em;
-    margin-left: 1em;
 }
-
-.nav-icon {
-    height: 2.5em;
-    width: 2.5em;
-    color: grey;
-}
-
-.username {
-    margin-left: 2em;
-    margin-top: 1em;
-    font-weight: 900;
-    color: grey;
-}
+/* ^Header */
 
 
+/* Body  */
 .main {
     margin-top: 0;
     padding-top: 0;
@@ -212,14 +121,14 @@ body {
 
 
 .Submit-section-active {
-    background-color: lightskyblue;
+    background-color: green;
     color: white;
     font-weight: bold;
     width: 5em;
     height: 1.5em;
     border-radius: 12pt;
     text-align: center;
-    margin-left: 87%;
+    margin-left: 92%;
     cursor: pointer;
 }
 
@@ -231,7 +140,7 @@ body {
     height: 1.5em;
     border-radius: 12pt;
     text-align: center;
-    margin-left: 87%;
+    margin-left: 92%;
     cursor: not-allowed;
 }
 .train-logos-sections-post-page {

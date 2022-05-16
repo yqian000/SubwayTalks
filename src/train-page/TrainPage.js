@@ -12,17 +12,19 @@ import Body from './components/body';
 
 function TrainPage(){
     
-    // TODO: need the station id (this is the station id of Union Square station)
-    //const id = "62635fec16afcb1ab116ee06";
-    //const id = "6273dcca88f20c2f5aa19c4b";
+    // TODO: We need to gather the logged username, and userId as well by using Location
     const location = useLocation();
     const {station_id} = location.state;
-    //console.log(id);
-
     
+    // const username = "randomUser01"; 
+    // const userId = "627fb56b137ee5d5f9de4ea3";
+
+    const username = "otherUser01"; 
+    const userId = "627fcfc1137ee5d5f9de4ea6";
+
+
     // Store the coming data at the following state
     const [stationState, setStation] = React.useState([]);
-
     // Gather station data from MongoDB
     React.useEffect( ()=>{
         axios.get( `http://localhost:5000/stations/get/${station_id}`)
@@ -50,7 +52,10 @@ function TrainPage(){
                       overallStars = { Number(stationState.overallStars)}
                       dangerLevel = { Number( stationState.dangerLevel)}
              />
-             <Body stationId = {stationState._id}/>
+             <Body stationId = {stationState._id}
+                   username = {username}
+                   userId = {userId}
+             />
              
 
         </div>

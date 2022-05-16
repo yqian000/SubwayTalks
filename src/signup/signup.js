@@ -26,9 +26,9 @@ function Signup() {
       });
   };
   return (
-    <section className="signin">
+    <section className="signup">
       <h1>Welcome to SubwayTalks website</h1>
-      <form action="" className="signin-form">
+      <form action="" className="signup-form">
         <img src="logo4.png" alt="" />
         <p>User Name:</p>
         <input

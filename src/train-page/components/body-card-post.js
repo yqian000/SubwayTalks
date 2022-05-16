@@ -1,7 +1,7 @@
 
 import React from 'react'; 
 
-import {BiMessageDetail} from "react-icons/bi";
+//import {BiMessageDetail} from "react-icons/bi";
 import {BiUpvote} from 'react-icons/bi';
 import {BiDownvote} from 'react-icons/bi';
 
@@ -14,7 +14,7 @@ function CardPost(props){
     const numberOfVotes = props.numberOfVotes;
     const title = props.title; 
     const bodyContext = props.bodyContext; 
-    const numberOfComments = props.numberOfComments;
+    //const numberOfComments = props.numberOfComments;
 
     return (
         <div className='card-post-station-page'> 
@@ -117,7 +117,7 @@ function CardPost(props){
                     <p> {bodyContext}</p>
             </div>
 
-
+{/* 
             <div className='footer-of-post-station-page'>
                     <BiMessageDetail size={30}/>
                     <p>  
@@ -128,7 +128,7 @@ function CardPost(props){
                         } 
                     
                     </p>
-            </div>
+            </div> */}
 
 
         </div>
