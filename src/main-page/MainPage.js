@@ -7,11 +7,20 @@ import './styles/HomePageStyles.css';
 
 
 function MainPage(){
+    
+    const username = ""; // "randomUser01"
+    const userId = ""; // "627fb56b137ee5d5f9de4ea3"
 
     return ( 
         <div>          
-            <Header />
-            <Body />
+            <Header 
+                username = {username}
+                userId = {userId}
+            />
+            <Body 
+                username = {username}
+                userId = {userId}
+            />
         </div>
     );
 

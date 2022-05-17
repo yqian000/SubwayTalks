@@ -18,7 +18,6 @@ import DisplayInfo from './post-page/components/displayInfoGathered';
 function App() {
   return (
     <>
-
       <Routes>
          <Route  exact path = "/"  element = {<MainPage />} />  
          <Route  exact path = "/station"  element = {<TrainPage />} />             
