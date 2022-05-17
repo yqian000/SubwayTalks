@@ -42,13 +42,27 @@ router.route('/add_user').post((req, res) => {
 });
 
 /* Read User based on the username provided */
-router.route('/findUser').get((req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  // find user by username and return user info
-  User.find({ username, password })
-    .then((user) => res.json(user))
-    .catch((err) => res.status(400).json('Error: ' + err));
+router.route('/findUser').post((req, res) => {
+  const { username, password } = req.body;
+  // Find this user name
+  User.findOne({ username }, 'username password')
+    .then((user) => {
+      if (!user) {
+        // User not found
+        return res.status(401).send({ message: 'Wrong Username or Password' });
+      }
+      // Check the password
+      if (password === user.password) {
+        res.json('User exist!');
+        console.log('User exist!');
+        // console.log(user);
+      } else {
+        console.log('Invalid Login Credentials');
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 /* Read User based on the id provided */
