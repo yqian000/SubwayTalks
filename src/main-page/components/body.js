@@ -9,7 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
 import { useNavigate} from "react-router-dom";
 
-function Body(){
+function Body(props){
 
     // Store the coming data at the following state
     const [stationState, setStation] = React.useState([]);
@@ -25,12 +25,14 @@ function Body(){
     React.useEffect( ()=>{
         // function to go to the correct station page
      
-    function handleNavigateToStation(id){
-        //console.log(id);
-        navigate( "/station", {state: {
-            station_id: id
-        }});
-    }
+        function handleNavigateToStation(id){
+            //console.log(id);
+            navigate( "/station", {state: {
+                station_id: id,
+                username: props.username, 
+                userId: props.userId,
+            }});
+        }
         axios.get( `http://localhost:5000/stations/`)
         .then( function(response){
                 
@@ -59,7 +61,7 @@ function Body(){
         } )
         .catch( err => err);
 
-    }, [navigate]); // will run once since parameter [] is given
+    }, [navigate, props.username, props.userId]); // will run once since parameter [] is given
 
 
     // Filters
@@ -84,8 +86,13 @@ function Body(){
                                                 key= {nanoid()}
                                         />
                                     })}
-                                    handleNavigateToStation = {()=>{navigate( "/station", {state: {
-                                        station_id: stationObj._id}});}}
+                                    handleNavigateToStation = {()=>{navigate( "/station", {state: 
+                                        {
+                                            station_id: stationObj._id,        
+                                            username: props.username, 
+                                            userId: props.userId,
+                                        },
+                                    });}}
                                 />
                     </div> )
 

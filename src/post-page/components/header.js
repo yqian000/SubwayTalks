@@ -11,7 +11,7 @@ function Header(props){
     let navigate =  useNavigate();
     function handleNavigateBackHome(){
         navigate( "/", {state:{
-            username: props.userName,
+            username: props.username,
             userId: props.userId,
         }} );
     }

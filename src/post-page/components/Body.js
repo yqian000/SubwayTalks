@@ -61,7 +61,7 @@ function Body(props){
 
 
     const [statePost, setStatePost] = React.useState( {
-        userName: props.userName,
+        userName: props.username,
         title: "",
         bodyContext: "",
         idSelector: "",
@@ -279,7 +279,9 @@ function Body(props){
 
                                 // Go to the corresponding station
                                 navigate( "/station", {state:{
-                                station_id: stationId
+                                station_id: stationId,
+                                username: props.username,
+                                userId : props.userId
                             }});
                             })
                             .catch( err => console.log(err));

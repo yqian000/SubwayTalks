@@ -11,6 +11,7 @@ import '../styles/styleTrainPage.css';
 
 
 function Body(props){
+
       
     // reddit Icon use on the create a post section and 
     // filter comments (newest and top up voted)
@@ -96,46 +97,54 @@ function Body(props){
         // the query is performed based on stationId
         // It will only run once since stationId is static
 
-        axios.get(`http://localhost:5000/posts/get/post/${props.stationId}`)
-        .then( function(response){
+        if( props.isLogged)
+        {
+                    axios.get(`http://localhost:5000/posts/get/post/${props.stationId}`)
+                    .then( function(response){
 
-            const cardData = response.data ; 
-                // Get the posts in which the user has up/down voted
-                // and display the changes
-                axios.get(`http://localhost:5000/users/get/${props.userId}`)
-                .then( function(response){
-                    const userVotes = response.data.votes;
+                        const cardData = response.data ; 
+                        // Get the posts in which the user has up/down voted
+                        // and display the changes
+                        axios.get(`http://localhost:5000/users/get/${props.userId}`)
+                        .then( function(response){
+                            const userVotes = response.data.votes;
 
-                    const postsData = cardData.map( (card)=>{
-                        let tempIsUp; 
-                        let tempIsDown; 
-                        return userVotes.some( (vote) =>{
-                            tempIsUp = vote.isUp;
-                            tempIsDown = vote.isDown;
-                            return vote.postId === card._id
-                        })?
-                                {
-                                    ...card,
-                                    isUp: tempIsUp,
-                                    isDown: tempIsDown,
-                                }:
-                                card;
-                    });
+                            const postsData = cardData.map( (card)=>{
+                                let tempIsUp; 
+                                let tempIsDown; 
+                                return userVotes.some( (vote) =>{
+                                    tempIsUp = vote.isUp;
+                                    tempIsDown = vote.isDown;
+                                    return vote.postId === card._id
+                                })?
+                                        {
+                                            ...card,
+                                            isUp: tempIsUp,
+                                            isDown: tempIsDown,
+                                        }:
+                                        card;
+                            });
 
-                    setPostCards( postsData) ; 
+                            setPostCards( postsData) ; 
+                            
+                        });
+ 
                     
-                });
+                } )
+                .catch( err => err);
+        }else{
+            axios.get(`http://localhost:5000/posts/get/post/${props.stationId}`)
+            .then(function(response){
+                setPostCards( response.data) ;
+            })
+            .catch( err => err);
 
-            //setPostCards( response.data) ; 
-            
-            
-        } )
-        .catch( err => err);
+        }
+
         
 
-
         
-    },[props.stationId, props.userId]);
+    },[props.stationId, props.userId, props.isLogged]);
     
     
     const postCards = statePostCards.map( (post) =>{
@@ -153,6 +162,7 @@ function Body(props){
                     overallRating = {Number(post.overallRating)}
                     dangerLevel = {Number(post.dangerLevel)}
                     numberOfComments = {post.numberOfComments}
+                    isLogged = {props.isLogged}
                 />);
     } );
     // ^Post Section
@@ -208,7 +218,10 @@ function Body(props){
     // Navigate home 
     let navigate =  useNavigate();
     function handleNavigateBackHome(){
-        updateDatabase();
+        // The user is logged in
+        if( props.isLogged){
+            updateDatabase();
+        }
         
         navigate( "/", {state: {
             username: props.username,
@@ -218,8 +231,22 @@ function Body(props){
     
     // Create Post section, should send user to `Make a Post Page`
     function handleCreatePost(){
-        updateDatabase();
-        navigate( "/make-a-post", );
+        
+        if( props.isLogged){
+            updateDatabase();
+            navigate( "/make-a-post", { state:
+                {
+                    username: props.username,
+                    userId: props.userId
+                } 
+            });
+        }
+        else{ // The user try to make a post without log in 
+            navigate( "/sign-in" , ); 
+        }
+        
+
+
     }
     // ^ Create Post section, should send user to `Make a Post Page`
 

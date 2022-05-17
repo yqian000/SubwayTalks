@@ -14,47 +14,79 @@ function CardPost(props){
     const numberOfVotes = props.numberOfVotes;
     const title = props.title; 
     const bodyContext = props.bodyContext; 
-    //const numberOfComments = props.numberOfComments;
+    const isLogged = props.isLogged;
 
+    let plusStyle = ''; let minusStyle = ''; let voteStyle = '' ;
+
+    
+    if( isLogged){
+        if( numberOfVotes <= 9) {
+            plusStyle = 'top-section-plus-one-unit-station-page'; 
+            minusStyle = 'top-section-minus-one-unit-station-page';
+            voteStyle = 'top-section-votes-one-unit-station-page'; 
+
+        } else if( numberOfVotes <=99){
+            plusStyle = 'top-section-plus-two-units-station-page';
+            minusStyle = 'top-section-minus-two-units-station-page';
+            voteStyle = 'top-section-votes-two-units-station-page';
+
+        }else if(numberOfVotes <= 999){
+            plusStyle = 'top-section-plus-three-units-station-page';
+            minusStyle = 'top-section-minus-three-units-station-page';
+            voteStyle = 'top-section-votes-three-units-station-page'; 
+
+        }else{
+            plusStyle = 'top-section-plus-four-units-station-page';
+            minusStyle = 'top-section-minus-four-units-station-page';
+            voteStyle = 'top-section-votes-four-units-station-page'; 
+        }
+
+    }
+    else{
+        if( numberOfVotes <= 9) {
+            plusStyle = 'top-section-plus-one-unit-station-page-guess'; 
+            minusStyle = 'top-section-minus-one-unit-station-page-guess';
+            voteStyle = 'top-section-votes-one-unit-station-page'; 
+
+        } else if( numberOfVotes <= 99){
+            plusStyle = 'top-section-plus-two-units-station-page-guess';
+            minusStyle = 'top-section-minus-two-units-station-page-guess';
+            voteStyle = 'top-section-votes-two-units-station-page';
+
+        }else if(numberOfVotes <= 999){
+            plusStyle = 'top-section-plus-three-units-station-page-guess';
+            minusStyle = 'top-section-minus-three-units-station-page-guess';
+            voteStyle = 'top-section-votes-three-units-station-page'; 
+
+        }else{
+            plusStyle = 'top-section-plus-four-units-station-page-guess';
+            minusStyle = 'top-section-minus-four-units-station-page-guess';
+            voteStyle = 'top-section-votes-four-units-station-page'; 
+        }
+
+    }
+
+    
     return (
         <div className='card-post-station-page'> 
             <div className='top-section-card-post-station-page'>
                 <div className='up-vote-button-card-post-station-page'>
-                    <p className= { numberOfVotes <=9?
-                                    'top-section-plus-one-unit-station-page':
-                                    numberOfVotes <= 99?
-                                    'top-section-plus-two-units-station-page':
-                                    numberOfVotes <=999?
-                                    'top-section-plus-three-units-station-page':
-                                    'top-section-plus-four-units-station-page'
-                                    }> 
+                    <p className= { plusStyle}> 
                         
                                 <BiUpvote color= { props.isUp?'orange':''}
                                 
-                                onClick = {props.handleUp}
+                                onClick = { props.handleUp}
                                 />                            
                         
                         
                     </p>
-                    <p className= {numberOfVotes <= 9?
-                                    'top-section-votes-one-unit-station-page':
-                                    numberOfVotes <=99?
-                                    'top-section-votes-two-units-station-page':
-                                    numberOfVotes <=999?
-                                    'top-section-votes-three-units-station-page':
-                                    'top-section-votes-four-units-station-page'}>  
+                    <p className= {voteStyle}>  
                         {numberOfVotes}
                     </p>
-                    <p className = { numberOfVotes <=9?
-                                    'top-section-minus-one-unit-station-page':
-                                    numberOfVotes <=99?
-                                    'top-section-minus-two-units-station-page':
-                                    numberOfVotes <= 999?
-                                    'top-section-minus-three-units-station-page':
-                                    'top-section-minus-four-units-station-page'}> 
+                    <p className = { minusStyle}> 
                                 <BiDownvote 
                                     color = {props.isDown? 'blue':''}
-                                    onClick ={props.handleDown}
+                                    onClick ={ props.handleDown}
                                 /> 
                     </p>                  
                 </div>

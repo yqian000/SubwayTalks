@@ -14,13 +14,15 @@ function TrainPage(){
     
     // TODO: We need to gather the logged username, and userId as well by using Location
     const location = useLocation();
-    const {station_id} = location.state;
+    const {station_id, username, userId} = location.state;
     
-    // const username = "randomUser01"; 
-    // const userId = "627fb56b137ee5d5f9de4ea3";
-
-    const username = "otherUser01"; 
-    const userId = "627fcfc1137ee5d5f9de4ea6";
+    // Check if the user is logged in 
+    let isLogged = false; 
+    if( username.length > 0){
+        isLogged = true ;
+    }
+   
+    // ^Check if the user is logged in
 
 
     // Store the coming data at the following state
@@ -55,6 +57,7 @@ function TrainPage(){
              <Body stationId = {stationState._id}
                    username = {username}
                    userId = {userId}
+                   isLogged = {isLogged}
              />
              
 
