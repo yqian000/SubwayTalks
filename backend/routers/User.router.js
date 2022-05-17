@@ -34,7 +34,7 @@ router.route('/add_user').post((req, res) => {
   // Store new user to database
   newUser
     .save()
-    .then(() => {
+    .then((user) => {
       res.json('User added!');
       console.log('User added!');
     })
@@ -55,7 +55,6 @@ router.route('/findUser').post((req, res) => {
       if (password === user.password) {
         res.json('User exist!');
         console.log('User exist!');
-        // console.log(user);
       } else {
         console.log('Invalid Login Credentials');
       }

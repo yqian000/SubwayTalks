@@ -36,9 +36,12 @@ function Signin() {
         .post('http://localhost:5000/users/findUser', checkUser)
         .then((response) => {
           alert('Succesfully log in to SubwayTalks');
-          // console.log(response.data);
-          navigate('/');
-          window.location.reload();
+          navigate('/', {
+            state: {
+              username: response.data.username,
+              userId: response.data._id,
+            },
+          });
         })
         .catch(function (error) {
           console.log(JSON.stringify(error));

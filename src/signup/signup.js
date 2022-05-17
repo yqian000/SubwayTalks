@@ -37,11 +37,12 @@ function Signup() {
         .post('http://localhost:5000/users/add_user', newUser)
         .then((response) => {
           alert('Succesfully sign up to SubwayTalks');
-          // console.log(response.data);
-        })
-        .then(() => {
-          navigate('/');
-          window.location.reload();
+          navigate('/', {
+            state: {
+              username: response.data.username,
+              userId: response.data._id,
+            },
+          });
         })
         .catch(function (error) {
           // console.log(JSON.stringify(error));
