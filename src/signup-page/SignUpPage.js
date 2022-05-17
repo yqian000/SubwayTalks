@@ -1,14 +1,12 @@
-import React from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import './signup.css';
+import { useNavigate, Link } from 'react-router-dom';
+import './styles/signup.css';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
-import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-function Signup() {
+function SignUpPage() {
   let navigate = useNavigate();
 
   const SignupSchema = Yup.object().shape({
@@ -120,4 +118,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default SignUpPage;

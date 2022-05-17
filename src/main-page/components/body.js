@@ -19,8 +19,6 @@ function Body(){
     const [activeCircular, setCircular] = React.useState(true);
     // ^ Circular Progress 
 
-
-
     
     let navigate =  useNavigate();
     // Gather stations data from MongoDB

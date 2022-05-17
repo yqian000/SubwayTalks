@@ -1,13 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
+import { useNavigate } from 'react-router-dom';
 function Header() {
+  let navigate = useNavigate();
   function handleSignUp() {
-    console.log('Sign up');
+    //console.log("Sign up");
+    navigate('/sign-up');
   }
 
   function handleLogIn() {
-    console.log('Log in');
+    //console.log("Log in");
+    navigate('/sign-in');
   }
 
   return (
@@ -21,19 +24,16 @@ function Header() {
       <h1 className="header-home-title"> SubwayTalks Web Page</h1>
 
       <div className="header-home-buttons">
-        <Link to="/sign-up">
-          <button onClick={handleSignUp} className={'header-home-button-sign'}>
-            {' '}
-            Sign Up{' '}
-          </button>
-        </Link>
+        <button onClick={handleSignUp} className={'header-home-button-sign'}>
+          {' '}
+          Sign Up{' '}
+        </button>
+
         <div>
-          <Link to="/sign-in">
-            <button onClick={handleLogIn} className="header-home-button-log">
-              {' '}
-              Log In{' '}
-            </button>
-          </Link>
+          <button onClick={handleLogIn} className="header-home-button-log">
+            {' '}
+            Log In{' '}
+          </button>
         </div>
       </div>
     </header>

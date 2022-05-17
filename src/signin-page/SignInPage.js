@@ -1,14 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import './signin.css';
+import { useNavigate, Link } from 'react-router-dom';
+import './styles/signin.css';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
-import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-function Signin() {
+function SignInPage() {
   let navigate = useNavigate();
 
   const SigninSchema = Yup.object().shape({
@@ -98,7 +97,7 @@ function Signin() {
                 </Button>
               </Form>
               <br></br>
-              <Link to="/sign-up">
+              <Link to="/sign-up" className="link">
                 <p className="linkto">
                   New user? Go to sign up{' '}
                   <ArrowForwardRoundedIcon fontSize="15px" />
@@ -117,4 +116,4 @@ function Signin() {
   );
 }
 
-export default Signin;
+export default SignInPage;
