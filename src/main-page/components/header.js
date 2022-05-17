@@ -1,14 +1,21 @@
 import React from 'react'; 
 
+import { useNavigate} from "react-router-dom";
+
 
 function Header(){
 
-    function handleSignIn(){
-        console.log("Sign in"); 
+    let navigate =  useNavigate();
+    function handleSignUp(){
+        //console.log("Sign up"); 
+        navigate( "/sign-up", 
+                );        
     }
 
     function handleLogIn(){
-        console.log("Log in"); 
+        //console.log("Log in");
+        navigate( "/sign-in", 
+                ); 
     }
     
     return (
@@ -19,9 +26,9 @@ function Header(){
 
             <div className='header-home-buttons'>
                 
-                <button onClick={handleSignIn}
+                <button onClick={handleSignUp}
                         className={'header-home-button-sign'}
-                >  Sign In </button>
+                >  Sign Up </button>
 
                 <div> 
                         <button onClick={handleLogIn}
