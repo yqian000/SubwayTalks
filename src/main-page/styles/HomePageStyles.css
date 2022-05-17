@@ -54,11 +54,12 @@ body {
 .header-home-greeting {
     display: flex;
     margin-top: 4.5em;
-    margin-left: 7em;
+    margin-left: 6em;
 }
 
 .header-home-greeting-title {
     margin-left: 0.4em;
+    margin-top: 0.5em;
     font-size: 2.5em;
 }
 
@@ -92,7 +93,13 @@ body {
 }
 
 .homePage-stars {
-    margin-top: 1em;
+    margin-top: 0.4em;
+        margin-left: 0.7em;
+    }
+    
+    .homePage-stars-below {
+        margin-top: 0.4em;
+        margin-left: 1.75em;
 }
 
 .homePage-grid-images {

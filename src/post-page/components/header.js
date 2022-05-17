@@ -26,7 +26,7 @@ function Header(props){
                      onClick={handleNavigateBackHome}
                 />
 
-                <h1 className='header-home-title'> SubwayTalks Web Page</h1>
+                <h1 className='header-title-postPage'> SubwayTalks Web Page</h1>
 
             </div>
     );

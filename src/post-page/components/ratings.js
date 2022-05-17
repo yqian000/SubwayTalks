@@ -95,7 +95,7 @@ export default function RadioGroupRating(props) {
   return (
       <div className='rating-overall-section'>
             <div className='rating-overall'>
-                <Label> <h2> Overall Train Experience*: </h2>  </Label> 
+                <Label> <h2 className='rating-label'> Overall Train Experience*: </h2>  </Label> 
                 <div className='rating-faces'> 
                     <Rating   
                     name="highlight-selected-only"
@@ -104,7 +104,7 @@ export default function RadioGroupRating(props) {
                     value={props.value}
                     onChange = {props.handleChange}
                     getLabelText = {getLabelTextFace}
-                
+                    
                     />
                 </div>     
                 {props.value !== null && (
@@ -114,7 +114,7 @@ export default function RadioGroupRating(props) {
                 )}         
             </div> 
             <div className='rating-overall'>
-                <Label> <h2> Danger Rate*: </h2>  </Label> 
+                <Label> <h2 className='rating-label'> Danger Rate*: </h2>  </Label> 
                 <div className='rating-faces'> 
                     <Rating   
                     name="simple-controlled"

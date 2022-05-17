@@ -2,7 +2,7 @@
     Header Styles
 */
 .station-title {
-
+    font-size: 2em;
     width: 50%;
     margin-top: 1em;
     margin-right: auto;
@@ -12,7 +12,7 @@
 
 .train-logos-sections {
     display: grid;
-    width: 50%;
+    width: 55%;
     grid-template: auto auto / repeat(4, 1fr);
     gap: 20px;
     background-color: white;
@@ -36,12 +36,12 @@
     margin-right: auto;
 }
 
-.overall-stars {
-    margin-top: 1em;
+.overall-stars-TrainPage {
+    margin-top: 0.5em;
 }
 
-.danger-stars {
-    margin-top: 1em;
+.danger-stars-TrainPage {
+    margin-top: 0.5em;
     margin-left: 1em;
 }
 
@@ -68,13 +68,13 @@
     Body Styles
 */
 .body-post {
-    width: 53.5%;
+    width: 55.2%;
     display: flex;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
     padding: 1em;
-    height: 4em;
+    
     border-radius: 4pt;
 }
 
@@ -94,15 +94,15 @@
 
 
 .body-filter-station-page {
-    width: 53.5%;
+    width: 55.5%;
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2em;
+    margin-top: 1em;
     margin-bottom: 2em;
     background-color: white;
     padding: 1em;
-    height: 4em;
+    
     border-radius: 4pt;
 }
 
@@ -141,7 +141,7 @@
 
 
 .card-post-station-page {
-    width: 52%;
+    width: 55.5%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2em;
@@ -171,7 +171,7 @@
     font-size: 2em;
     margin-left: -0.2em;
     margin-top: 0;
-    margin-bottom: -1.2em;
+    margin-bottom: -0.3em;
     cursor: pointer;
 }
 
@@ -199,7 +199,7 @@
         font-size: 2em;
         margin-left: -0.2em;
         margin-top: 0;
-        margin-bottom: -1.2em;
+        margin-bottom: -0.3em;
         cursor: not-allowed;
         pointer-events: none;
     }
@@ -225,7 +225,7 @@
     font-size: 2em;
     margin-left: 0em;
     margin-top: 0;
-    margin-bottom: -1.2em;
+margin-bottom: -0.3em;
     cursor: pointer;
 }
 
@@ -251,7 +251,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     font-size: 2em;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     margin-left: 0em;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     margin-top: 0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    margin-bottom: -1.2em;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                margin-bottom: -0.3em;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     cursor: not-allowed;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     pointer-events: none;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
@@ -276,7 +276,7 @@
     font-size: 2em;
     margin-left: 0.30em;
     margin-top: 0;
-    margin-bottom: -1.2em;
+    margin-bottom: -0.3em;
     cursor: pointer;
 }
 
@@ -303,7 +303,7 @@
         font-size: 2em;
         margin-left: 0.30em;
         margin-top: 0;
-        margin-bottom: -1.2em;
+        margin-bottom: -0.3em;
         cursor: not-allowed;
         pointer-events: none;
     }
@@ -379,18 +379,18 @@
 .posted-by-section-station-page {
     margin-left: 1em;
     color: gray;
-    margin-top: -1em;
+    margin-top: 0em;
 }
 
 /* Rating section */
 .StationPage-overall-rating-section {
     display: flex;
-    margin-top: -2em;
+        margin-top: 0em;
     margin-left: 1em;
 }
 
 .StationPage-danger-level {
-    margin-top: 1em;
+    margin-top: 0.3em;
     margin-left: 1em;
 }
 
@@ -398,22 +398,22 @@
 .title-of-post-station-page {
     font-size: 1.5em;
     margin-left: 0.65em;
-    margin-top: -2em;
+    margin-top: 0em;
 }
 
 
 /* body of post with only one unit of up vote */
 .body-of-post-one-unit-station-page {
     margin-left: 1.35em;
-        margin-top: -2em;
+        margin-top: 0em;
     font-size: 2em;
 }
 /* ^body of post with only one unit of up vote */
 
 /* body of post with only two units of up vote */
 .body-of-post-two-units-station-page {
-    margin-left: 1.45em;
-        margin-top: -2em;
+    margin-left: 1.55em;
+        margin-top: 0em;
     font-size: 2em;
 }
 /* ^body of post with only two units of up vote */
@@ -421,7 +421,7 @@
 /* body of post with only three units of up vote */
 .body-of-post-three-units-station-page {
     margin-left: 2.1em;
-        margin-top: -2em;
+        margin-top: 0em;
     font-size: 2em;
 }
 /* ^body of post with only three units of up vote */
@@ -429,7 +429,7 @@
 /* body of post with only four units of up vote */
 .body-of-post-four-units-station-page {
     margin-left: 2.5em;
-    margin-top: -1em;
+    margin-top: 0em;
     font-size: 2em;
 }
 /* ^body of post with only four units of up vote */

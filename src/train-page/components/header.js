@@ -22,7 +22,7 @@ function Header(props){
         <div className='overall-rating-section'>
             <h2> Overall rating: </h2>   
             
-            <div className='overall-stars'>
+            <div className='overall-stars-TrainPage'>
                 <Rating   
                     precision={0.5}
                     value={props.overallStars} 
@@ -36,7 +36,7 @@ function Header(props){
         <div className='overall-rating-section'>
             <h2> Danger level: </h2>   
             
-            <div className='danger-stars'>
+            <div className='danger-stars-TrainPage'>
                 <Rating  
                     name="read-only" 
                     precision={0.5}

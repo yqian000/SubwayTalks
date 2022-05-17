@@ -47,7 +47,7 @@ function ButtonImage(props){
 
                 <div className='homePage-overall-rating-section'>
                     <h2> Danger level: </h2>               
-                    <div className='homePage-stars'>
+                    <div className='homePage-stars-below'>
                         <Rating  
                             name="read-only" 
                             precision={0.5}
