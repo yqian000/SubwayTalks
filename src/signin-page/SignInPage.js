@@ -33,8 +33,8 @@ function SignInPage() {
       };
       axios
         .post('http://localhost:5000/users/findUser', checkUser)
-        .then(function(response){
-          //console.log(response.data); 
+        .then(function (response) {
+          //console.log(response.data);
           alert('Successfully log in to SubwayTalks');
           navigate('/main', {
             state: {
@@ -48,6 +48,7 @@ function SignInPage() {
           let isValidUsername = error.toString().includes('404');
           if (isValidUsername === true) {
             alert('Username or password did not match, please enter again!');
+            window.location.reload();
           } else {
             alert('Something went wrong, please try again!');
             window.location.reload();
@@ -105,13 +106,14 @@ function SignInPage() {
                 </p>
               </Link>
 
-              <Link to="/main" 
-                    className="link"
-                    state = {{
-                      username: "",
-                      userId: "",
-                    }}
-                >
+              <Link
+                to="/main"
+                className="link"
+                state={{
+                  username: '',
+                  userId: '',
+                }}
+              >
                 <p className="linkto">
                   Log in as guest <ArrowForwardRoundedIcon fontSize="15px" />
                 </p>
