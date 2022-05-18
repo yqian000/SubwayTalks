@@ -19,6 +19,31 @@ router.route('/topDanger').get( (req,res) => {
     .catch( err => res.status(400).json('Error: ' + err));
 } );
 
+router.route('/brooklyn').get( (req,res) => {
+    Station.find({borough: 'Brooklyn'})
+    .then( stations => res.json(stations))
+    .catch( err => res.status(400).json('Error: ' + err));
+} );
+router.route('/Manhattan').get( (req,res) => {
+    Station.find({borough: 'Manhattan'})
+    .then( stations => res.json(stations))
+    .catch( err => res.status(400).json('Error: ' + err));
+} );
+router.route('/TheBronx').get( (req,res) => {
+    Station.find({borough: 'The Bronx'})
+    .then( stations => res.json(stations))
+    .catch( err => res.status(400).json('Error: ' + err));
+} );
+router.route('/Queens').get( (req,res) => {
+    Station.find({borough: 'Queens'})
+    .then( stations => res.json(stations))
+    .catch( err => res.status(400).json('Error: ' + err));
+} );
+router.route('/StatenIsland').get( (req,res) => {
+    Station.find({borough: 'StatenIsland'})
+    .then( stations => res.json(stations))
+    .catch( err => res.status(400).json('Error: ' + err));
+} );
 
 router.route( '/get/:id').get( (req,res) =>{
     Station.findById( req.params.id)

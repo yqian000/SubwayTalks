@@ -106,9 +106,14 @@ function Body(props){
             
             <div className='home-main-filter'> 
                 <h1> Filter: </h1>
-                <Button variant="text" onClick={() => handleFilters('')}>All</Button>
-                <Button variant="text" onClick={() => handleFilters('topRated')}>Top Rated</Button>
-                <Button variant="text" onClick={() => handleFilters('topDanger')}>Top dangerous</Button>
+                <Button size="large" variant="text" onClick={() => handleFilters('')}>All</Button>
+                <Button size="large" variant="text" onClick={() => handleFilters('topRated')}>Top Rated</Button>
+                <Button size="large" variant="text" onClick={() => handleFilters('topDanger')}>Top dangerous</Button>
+                <Button size="large" variant="text" onClick={() => handleFilters('Brooklyn')}>Brooklyn</Button>
+                <Button size="large" variant="text" onClick={() => handleFilters('Manhattan')}>Manhattan</Button>
+                <Button size="large" variant="text" onClick={() => handleFilters('TheBronx')}>The Bronx</Button>
+                <Button size="large" variant="text" onClick={() => handleFilters('Queens')}>Queens</Button>
+                <Button size="large" variant="text" onClick={() => handleFilters('StatenIsland')}>Staten Island</Button>
             </div>
 
             {
