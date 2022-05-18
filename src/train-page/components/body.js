@@ -221,12 +221,27 @@ function Body(props){
         // The user is logged in
         if( props.isLogged){
             updateDatabase();
+            navigate( `/main/logged-in-as?${props.username}`, 
+                {state: 
+                    {
+                        username: props.username,
+                        userId: props.userId,
+                    },
+                }
+                    );
+        }
+        else{
+            navigate( "/main/logged-in-as?guest", 
+            {state: 
+                {
+                    username: props.username,
+                    userId: props.userId,
+                },
+            }
+                );
         }
         
-        navigate( "/main", {state: {
-            username: props.username,
-            userId: props.userId,
-        },});
+
     }
     
     // Create Post section, should send user to `Make a Post Page`
@@ -234,7 +249,7 @@ function Body(props){
         
         if( props.isLogged){
             updateDatabase();
-            navigate( "/make-a-post", { state:
+            navigate( `/make-a-post/logged-in-as?${props.username}`, { state:
                 {
                     username: props.username,
                     userId: props.userId

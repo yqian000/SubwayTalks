@@ -36,7 +36,7 @@ function SignInPage() {
         .then(function (response) {
           //console.log(response.data);
           alert('Successfully log in to SubwayTalks');
-          navigate('/main', {
+          navigate(`/main/logged-in-as?${response.data.username}`, {
             state: {
               username: response.data.username,
               userId: response.data._id,
@@ -107,7 +107,7 @@ function SignInPage() {
               </Link>
 
               <Link
-                to="/main"
+                to="/main/logged-in-as?guest"
                 className="link"
                 state={{
                   username: '',

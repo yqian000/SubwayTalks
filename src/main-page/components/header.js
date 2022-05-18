@@ -22,10 +22,9 @@ function Header(props) {
   }
 
   // TODO: Log out user
-  function handleLogOut() {
-    
-    window.location.reload();
-    navigate('/main', {state: {
+  function handleLogOut() {   
+    //window.location.reload();
+    navigate('/main/logged-in-as?guest', {state: {
       username: "",
       userId: "",
     }}); 

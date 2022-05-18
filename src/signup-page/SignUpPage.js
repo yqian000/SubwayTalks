@@ -35,7 +35,7 @@ function SignUpPage() {
         .post('http://localhost:5000/users/add_user', newUser)
         .then((response) => {
           alert('Successfully sign up to SubwayTalks');
-          navigate('/main', {
+          navigate(`/main/logged-in-as?${response.data.username}`, {
             state: {
               username: response.data.username,
               userId: response.data._id,
@@ -105,7 +105,7 @@ function SignUpPage() {
                   <ArrowForwardRoundedIcon fontSize="15px" />
                 </p>
               </Link>
-              <Link to="/main" 
+              <Link to="/main/logged-in-as?guest" 
                     className="link"
                     state = {{
                       username: "",

@@ -25,14 +25,15 @@ function Body(props){
     React.useEffect( ()=>{
         // function to go to the correct station page
      
-        function handleNavigateToStation(id){
+        function handleNavigateToStation(id, nameStation){
             //console.log(id);
-            navigate( "/station", {state: {
+            navigate( `/station/${nameStation}`, {state: {
                 station_id: id,
                 username: props.username, 
                 userId: props.userId,
             }});
         }
+
         axios.get( `http://localhost:5000/stations/`)
         .then( function(response){
                 
@@ -52,7 +53,7 @@ function Body(props){
                                                 key= {nanoid()}
                                         />
                                     })}
-                                    handleNavigateToStation = {()=>handleNavigateToStation(stationObj._id)}
+                                    handleNavigateToStation = {()=>handleNavigateToStation(stationObj._id, stationObj.name)}
                                 />
                     </div> )
 
@@ -86,7 +87,7 @@ function Body(props){
                                                 key= {nanoid()}
                                         />
                                     })}
-                                    handleNavigateToStation = {()=>{navigate( "/station", {state: 
+                                    handleNavigateToStation = {()=>{navigate( `/station/${stationObj.name}`, {state: 
                                         {
                                             station_id: stationObj._id,        
                                             username: props.username, 

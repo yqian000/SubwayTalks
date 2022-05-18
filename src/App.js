@@ -14,9 +14,10 @@ function App() {
       <Routes>
         <Route exact path="/" element={<SignInPage />} />
         <Route exact path= "/sign-in" element= {<SignInPage />} />
-        <Route exact path="/main" element={<MainPage />} />
-        <Route exact path="/station" element={<TrainPage />} />
-        <Route exact path="/make-a-post" element={<PostPage />} />
+        <Route path="/main/:loggedAs" element={<MainPage />} />
+        <Route path="/station/:stationName" element={<TrainPage />} />
+
+        <Route path="/make-a-post/:loggedAs" element={<PostPage />} />
         <Route exact path="/success" element={<DisplayInfo />} />
         <Route exact path="/sign-up" element={<SignUpPage />} />
       </Routes>

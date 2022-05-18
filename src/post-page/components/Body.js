@@ -278,7 +278,7 @@ function Body(props){
                                 //console.log(response); 
 
                                 // Go to the corresponding station
-                                navigate( "/station", {state:{
+                                navigate( `/station/${statePost.station}`, {state:{
                                 station_id: stationId,
                                 username: props.username,
                                 userId : props.userId

@@ -10,7 +10,7 @@ function Header(props){
     // TODO: Double check the state we are sending back to home Page  
     let navigate =  useNavigate();
     function handleNavigateBackHome(){
-        navigate( "/main", {state:{
+        navigate( `/main/logged-in-as?${props.username}`, {state:{
             username: props.username,
             userId: props.userId,
         }} );
