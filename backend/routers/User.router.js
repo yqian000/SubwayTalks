@@ -53,13 +53,13 @@ router.route('/findUser').post((req, res) => {
         return res.status(401).send({ message: 'Wrong Username or Password' });
       }
       // Check the password
-      if (password === user.password) 
-      {
+      if (password === user.password) {
         //res.json('User exist!');
         //console.log('User exist!');
         return res.json(user);
       } else {
-        console.log('Invalid Login Credentials');
+        return res.status(404).send({ message: 'Invalid Login Credentials' });
+        // console.log('Invalid Login Credentials');
       }
     })
     .catch((err) => {
