@@ -35,8 +35,9 @@ router.route('/add_user').post((req, res) => {
   newUser
     .save()
     .then((user) => {
-      res.json('User added!');
+      //res.json('User added!');
       console.log('User added!');
+      return res.json(user);
     })
     .catch((err) => res.status(400).json('Error: ' + err));
 });
@@ -52,9 +53,11 @@ router.route('/findUser').post((req, res) => {
         return res.status(401).send({ message: 'Wrong Username or Password' });
       }
       // Check the password
-      if (password === user.password) {
-        res.json('User exist!');
-        console.log('User exist!');
+      if (password === user.password) 
+      {
+        //res.json('User exist!');
+        //console.log('User exist!');
+        return res.json(user);
       } else {
         console.log('Invalid Login Credentials');
       }

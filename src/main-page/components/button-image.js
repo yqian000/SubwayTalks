@@ -26,8 +26,8 @@ function ButtonImage(props){
                 alt="station"
             />
             <CardContent>
-                <h2> {name}</h2>
-                <h2> {borough}</h2> 
+                <h3> {name}</h3>
+                <h2> 🏙️ {borough}</h2> 
                 <div className='homePage-trainLogos'>
                     {props.trains}
                 </div>

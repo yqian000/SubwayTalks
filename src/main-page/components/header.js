@@ -23,7 +23,13 @@ function Header(props) {
 
   // TODO: Log out user
   function handleLogOut() {
-    console.log('Log out');
+    
+    window.location.reload();
+    navigate('/main', {state: {
+      username: "",
+      userId: "",
+    }}); 
+
   }
 
   return (

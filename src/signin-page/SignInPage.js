@@ -33,9 +33,10 @@ function SignInPage() {
       };
       axios
         .post('http://localhost:5000/users/findUser', checkUser)
-        .then((response) => {
-          alert('Succesfully log in to SubwayTalks');
-          navigate('/', {
+        .then(function(response){
+          //console.log(response.data); 
+          alert('Successfully log in to SubwayTalks');
+          navigate('/main', {
             state: {
               username: response.data.username,
               userId: response.data._id,
@@ -103,7 +104,14 @@ function SignInPage() {
                   <ArrowForwardRoundedIcon fontSize="15px" />
                 </p>
               </Link>
-              <Link to="/" className="link">
+
+              <Link to="/main" 
+                    className="link"
+                    state = {{
+                      username: "",
+                      userId: "",
+                    }}
+                >
                 <p className="linkto">
                   Log in as guest <ArrowForwardRoundedIcon fontSize="15px" />
                 </p>

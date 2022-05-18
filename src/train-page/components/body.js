@@ -223,7 +223,7 @@ function Body(props){
             updateDatabase();
         }
         
-        navigate( "/", {state: {
+        navigate( "/main", {state: {
             username: props.username,
             userId: props.userId,
         },});

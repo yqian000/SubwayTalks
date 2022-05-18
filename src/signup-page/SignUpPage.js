@@ -34,8 +34,8 @@ function SignUpPage() {
       axios
         .post('http://localhost:5000/users/add_user', newUser)
         .then((response) => {
-          alert('Succesfully sign up to SubwayTalks');
-          navigate('/', {
+          alert('Successfully sign up to SubwayTalks');
+          navigate('/main', {
             state: {
               username: response.data.username,
               userId: response.data._id,
@@ -105,7 +105,13 @@ function SignUpPage() {
                   <ArrowForwardRoundedIcon fontSize="15px" />
                 </p>
               </Link>
-              <Link to="/" className="link">
+              <Link to="/main" 
+                    className="link"
+                    state = {{
+                      username: "",
+                      userId: "",
+                    }}      
+              >
                 <p className="linkto">
                   Log in as guest <ArrowForwardRoundedIcon fontSize="15px" />
                 </p>

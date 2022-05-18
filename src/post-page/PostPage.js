@@ -10,8 +10,8 @@ function PostPage(){
     const location = useLocation();
     const { username, userId} = location.state;
 
-    console.log( "username: " + username); 
-    console.log( "userID: " + userId); 
+    // console.log( "username: " + username); 
+    // console.log( "userID: " + userId); 
 
     
     
