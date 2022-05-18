@@ -54,7 +54,7 @@ function Header(props) {
             height="80"
             title="gif"
             frameBorder="0"
-            className=""
+            className="reddit-waving-gif"
           ></iframe>
           <h2 className="header-home-greeting-title">
             Welcome, {props.username}
