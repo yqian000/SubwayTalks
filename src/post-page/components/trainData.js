@@ -206,7 +206,7 @@ export default [
                     '34th Street–Herald Square station','West Fourth Street–Washington Square station',
                     'Grand Street station', 'Fifth Avenue station', 'Bleecker Street station',
                     'Atlantic Avenue–Barclays Center station',
-                    '36th Street station','Ninth Avenue station','Fort Hamilton Parkway station','50th Street station',
+                    '36th Street–Fourth Avenue station','Ninth Avenue station','Fort Hamilton Parkway station','50th Street station',
                     '55th Street station','62nd Street station','71st Street station','79th Street station',
                     '18th Avenue station','20th Avenue station','Bay Parkway station','25th Avenue station',
                     'Bay 50th Street station','Coney Island–Stillwell Avenue station' ]
