@@ -1,8 +1,8 @@
 import React from 'react'; 
 
 import { useNavigate} from "react-router-dom";
-import { BiMeteor } from "react-icons/bi";
-import {BiLineChart} from "react-icons/bi";
+//import { BiMeteor } from "react-icons/bi";
+//import {BiLineChart} from "react-icons/bi";
 
 import axios from 'axios';
 
@@ -14,18 +14,20 @@ function Body(props){
 
       
     // reddit Icon use on the create a post section and 
-    // filter comments (newest and top up voted)
     const redditIcon = require("../images/reddit-icon.png");
-    const redditIconStanding = require("../images/reddit-icon-standing.jpg");
+    
+    // filter comments (newest and top up voted)
+    
+    //const redditIconStanding = require("../images/reddit-icon-standing.jpg");
     // ^ Reddit icon Pictures
     
     // Filter usage section, send the user to `.../new` or `.../top`
-    function handleNewFilter(){
-        console.log("Handle New");
-    }
-    function handleTopFilter(){
-        console.log("Handle Top");
-    }
+    //function handleNewFilter(){
+      //  console.log("Handle New");
+    //}
+    // function handleTopFilter(){
+    //     console.log("Handle Top");
+    // }
     // ^ Filter usage section, send the user to `.../new` or `.../top`
 
 
@@ -283,7 +285,7 @@ function Body(props){
                             onClick = {handleCreatePost}
                         />
             </div>
-
+{/* 
             <div className='body-filter-station-page'>
 
                     <img  className = 'reddit-icon-standing' src= {redditIconStanding} alt = ''/>
@@ -306,7 +308,8 @@ function Body(props){
                         <h2>   Top  </h2>
                     </div>
                    
-            </div>
+            </div> */}
+
                 {postCards}
         </main>
     );
