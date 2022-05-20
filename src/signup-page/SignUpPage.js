@@ -32,7 +32,7 @@ function SignUpPage() {
         votes: [],
       };
       axios
-        .post('http://localhost:5000/users/add_user', newUser)
+        .post('https://subway-talks.herokuapp.com/users/add_user', newUser)
         .then((response) => {
           alert('Successfully sign up to SubwayTalks');
           navigate(`/main/logged-in-as?${response.data.username}`, {
@@ -51,7 +51,7 @@ function SignUpPage() {
             );
           } else {
             alert('Something went wrong, please try again!');
-            window.location.reload();
+            navigate('/sign-up');
           }
         });
     },
@@ -105,12 +105,13 @@ function SignUpPage() {
                   <ArrowForwardRoundedIcon fontSize="15px" />
                 </p>
               </Link>
-              <Link to="/main/logged-in-as?guest" 
-                    className="link"
-                    state = {{
-                      username: "",
-                      userId: "",
-                    }}      
+              <Link
+                to="/main/logged-in-as?guest"
+                className="link"
+                state={{
+                  username: '',
+                  userId: '',
+                }}
               >
                 <p className="linkto">
                   Log in as guest <ArrowForwardRoundedIcon fontSize="15px" />

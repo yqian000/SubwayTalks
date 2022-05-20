@@ -32,7 +32,7 @@ function SignInPage() {
         password: values.password,
       };
       axios
-        .post('http://localhost:5000/users/findUser', checkUser)
+        .post('https://subway-talks.herokuapp.com/users/findUser', checkUser)
         .then(function (response) {
           //console.log(response.data);
           alert('Successfully log in to SubwayTalks');
@@ -48,10 +48,10 @@ function SignInPage() {
           let isValidUsername = error.toString().includes('404');
           if (isValidUsername === true) {
             alert('Username or password did not match, please enter again!');
-            window.location.reload();
+            navigate('/sign-in');
           } else {
             alert('Something went wrong, please try again!');
-            window.location.reload();
+            navigate('/sign-in');
           }
         });
     },
