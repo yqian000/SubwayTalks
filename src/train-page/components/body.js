@@ -91,13 +91,15 @@ function Body(props) {
 
     if (props.isLogged) {
       axios
-        .get(`http://localhost:5000/posts/get/post/${props.stationId}`)
+        .get(
+          `https://subway-talks.herokuapp.com/posts/get/post/${props.stationId}`
+        )
         .then(function (response) {
           const cardData = response.data;
           // Get the posts in which the user has up/down voted
           // and display the changes
           axios
-            .get(`http://localhost:5000/users/get/${props.userId}`)
+            .get(`https://subway-talks.herokuapp.com/users/get/${props.userId}`)
             .then(function (response) {
               const userVotes = response.data.votes;
 
@@ -123,7 +125,9 @@ function Body(props) {
         .catch((err) => err);
     } else {
       axios
-        .get(`http://localhost:5000/posts/get/post/${props.stationId}`)
+        .get(
+          `https://subway-talks.herokuapp.com/posts/get/post/${props.stationId}`
+        )
         .then(function (response) {
           setPostCards(response.data);
         })
@@ -157,7 +161,7 @@ function Body(props) {
     //statePostCards
 
     axios
-      .get(`http://localhost:5000/users/get/${props.userId}`)
+      .get(`https://subway-talks.herokuapp.com/users/get/${props.userId}`)
       .then(function (response) {
         const tempUsername = response.data.username;
         const tempPassword = response.data.password;
@@ -178,19 +182,25 @@ function Body(props) {
         //console.log(userNewVotes);
 
         axios
-          .post(`http://localhost:5000/users/update/${props.userId}`, {
-            username: tempUsername,
-            password: tempPassword,
-            votes: userNewVotes,
-          })
+          .post(
+            `https://subway-talks.herokuapp.com/users/update/${props.userId}`,
+            {
+              username: tempUsername,
+              password: tempPassword,
+              votes: userNewVotes,
+            }
+          )
           .then(() => {
             statePostCards.map((post) => {
-              axios.post(`http://localhost:5000/posts/update/${post._id}`, {
-                ...post,
-                numberOfVotes: post.numberOfVotes,
-                isUp: false,
-                isDown: false,
-              });
+              axios.post(
+                `https://subway-talks.herokuapp.com/posts/update/${post._id}`,
+                {
+                  ...post,
+                  numberOfVotes: post.numberOfVotes,
+                  isUp: false,
+                  isDown: false,
+                }
+              );
 
               return post;
             });
