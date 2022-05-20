@@ -51,7 +51,7 @@ function SignUpPage() {
             );
           } else {
             alert('Something went wrong, please try again!');
-            window.location.reload();
+            navigate('/sign-up');
           }
         });
     },

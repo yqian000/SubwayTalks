@@ -48,10 +48,10 @@ function SignInPage() {
           let isValidUsername = error.toString().includes('404');
           if (isValidUsername === true) {
             alert('Username or password did not match, please enter again!');
-            window.location.reload();
+            navigate('/sign-in');
           } else {
             alert('Something went wrong, please try again!');
-            window.location.reload();
+            navigate('/sign-in');
           }
         });
     },
