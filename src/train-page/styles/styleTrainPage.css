@@ -386,7 +386,7 @@ margin-bottom: -0.3em;
 /* Rating section */
 .StationPage-overall-rating-section {
     display: flex;
-        margin-top: 0em;
+    margin-top: 0em;
     margin-left: 1em;
 }
 
@@ -406,7 +406,7 @@ margin-bottom: -0.3em;
 /* body of post with only one unit of up vote */
 .body-of-post-one-unit-station-page {
     margin-left: 1.35em;
-        margin-top: 0em;
+    margin-top: 0em;
     font-size: 2em;
 }
 /* ^body of post with only one unit of up vote */
@@ -414,7 +414,7 @@ margin-bottom: -0.3em;
 /* body of post with only two units of up vote */
 .body-of-post-two-units-station-page {
     margin-left: 1.55em;
-        margin-top: 0em;
+    margin-top: 0em;
     font-size: 2em;
 }
 /* ^body of post with only two units of up vote */
@@ -422,7 +422,7 @@ margin-bottom: -0.3em;
 /* body of post with only three units of up vote */
 .body-of-post-three-units-station-page {
     margin-left: 2.1em;
-        margin-top: 0em;
+    margin-top: 0em;
     font-size: 2em;
 }
 /* ^body of post with only three units of up vote */
@@ -449,4 +449,74 @@ margin-bottom: -0.3em;
     font-size: 1.2em;
 }
 
-/* ^comment section */
+@media screen and (max-width: 600px) {
+    .station-title {
+        font-size: 1.5em;
+        width: 70%;
+    }
+    .train-logos-sections {
+        width: 90%;
+        gap: 20px;
+    }
+    .overall-rating-section {
+        width: 90%;
+    }
+    .overall-rating-section h2{
+        font-size: 20px;
+    }
+    .overall-stars-TrainPage {
+        margin-top: 0em;
+        margin-left: .5em;
+    }
+    .danger-stars-TrainPage {
+        margin-top: 0em;
+        margin-left: 1.1em;
+    }
+    .station-section {
+        width: 90%;
+    }
+    .body-post {
+        width: 90%;
+    }
+    .reddit-icon {
+        width: 2.5em;
+        height: 2.5em;
+    }
+    .create-post {
+        height: 2.5em;
+    }
+    .card-post-station-page {
+        width: 90%;
+        margin-bottom: 1em;
+        padding: .5em 1em;
+    }
+    .top-section-plus-three-units-station-page-guess {
+        font-size: 1em;
+    }
+    .StationPage-overall-rating-section h2 {
+        font-size: 17px;
+    }
+    .StationPage-danger-level {
+        margin-top: 0em;
+        margin-left: 1.3em;
+    }
+    .title-of-post-station-page h2{
+        font-size: .9em;
+    }
+    .body-of-post-one-unit-station-page p{
+        margin-left: 0em;
+        font-size: .5em;
+    }
+    .body-of-post-two-units-station-page p{
+        margin-left: 0em;
+        font-size: .5em;
+    }
+    .body-of-post-three-units-station-page p{
+        margin-left: 0em;
+        font-size: .5em;
+    }
+    .body-of-post-four-units-station-page p{
+        margin-left: 0em;
+        font-size: .5em;
+    }
+}

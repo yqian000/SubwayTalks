@@ -5,8 +5,21 @@ import { nanoid } from 'nanoid';
 
 import ButtonImage from './button-image';
 import CircularProgress from '@mui/material/CircularProgress';
-import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      xxs: 0, // smol phone
+      xs: 300, // phone
+      sm: 600, // tablets
+      md: 900, // small laptop
+      lg: 1200, // desktop
+      xl: 1536, // large screens
+    },
+  },
+});
 
 function Body(props) {
   // Store the coming data at the following state
@@ -116,64 +129,90 @@ function Body(props) {
     <main>
       <div className="home-main-filter">
         <h1> Filter: </h1>
-        <Button size="large" variant="text" onClick={() => handleFilters('')}>
-          All
-        </Button>
-        <Button
-          size="large"
-          variant="text"
+        <button
+          type="button"
+          className="btn btn-outline-warning btn-lg"
+          onClick={() => handleFilters('')}
+        >
+          ALL
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline-warning btn-lg"
           onClick={() => handleFilters('topRated')}
         >
           Top Rated
-        </Button>
-        <Button
-          size="large"
-          variant="text"
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline-warning btn-lg"
           onClick={() => handleFilters('topDanger')}
         >
           Top dangerous
-        </Button>
-        <Button
-          size="large"
-          variant="text"
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline-warning btn-lg"
           onClick={() => handleFilters('Brooklyn')}
         >
           Brooklyn
-        </Button>
-        <Button
-          size="large"
-          variant="text"
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline-warning btn-lg"
           onClick={() => handleFilters('Manhattan')}
         >
           Manhattan
-        </Button>
-        <Button
-          size="large"
-          variant="text"
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline-warning btn-lg"
           onClick={() => handleFilters('TheBronx')}
         >
           The Bronx
-        </Button>
-        <Button
-          size="large"
-          variant="text"
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline-warning btn-lg"
           onClick={() => handleFilters('Queens')}
         >
           Queens
-        </Button>
-        <Button
-          size="large"
-          variant="text"
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline-warning btn-lg"
           onClick={() => handleFilters('StatenIsland')}
         >
           Staten Island
-        </Button>
+        </button>
       </div>
 
       {activeCircular ? (
-        <div className="homePage-Loading">
-          <CircularProgress size="7rem" thickness={4} disableShrink />
-        </div>
+        <ThemeProvider theme={theme}>
+          <div className="homePage-Loading">
+            <CircularProgress
+              sx={{
+                size: {
+                  xxs: '4rem',
+                  xs: '4rem',
+                  sm: '5rem',
+                  md: '5rem',
+                  lg: '6rem',
+                  xl: '7rem',
+                },
+                thickness: {
+                  xxs: 2,
+                  xs: 2,
+                  sm: 3,
+                  md: 3,
+                  lg: 4,
+                  xl: 4,
+                },
+              }}
+              disableShrink
+            />
+          </div>
+        </ThemeProvider>
       ) : (
         <div className="homePage-grid-images">{stationState}</div>
       )}

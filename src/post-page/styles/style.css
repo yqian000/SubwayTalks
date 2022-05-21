@@ -8,6 +8,8 @@ body {
 .nav-logo-postPage {
     width: 12em;
     height: 12em;
+    flex: 1;
+    object-fit: contain;
     cursor: pointer;
 }
 
@@ -17,9 +19,12 @@ body {
 }
 
 .header-title-postPage {
+    flex:6;
     font-size: 3.5em;
-        margin-left: 8em;
-        margin-top: 1.5em;
+    margin: 1em 10% 1em 0;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
 }
 /* ^Header */
 
@@ -28,8 +33,8 @@ body {
 .main {
     margin-top: 1em;
     padding-top: 0;
-    margin-left: 25em;
-    margin-right: 25em;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .title-create-post {
@@ -64,7 +69,6 @@ body {
     background-color: white;
     border-radius: 12px;
     margin-bottom: 4em;
-
 }
 
 .title-post {
@@ -115,7 +119,7 @@ body {
     color: #a0a0a0;
     font-weight: bold;
     margin-left: 7em;
-        margin-top: 18em;
+    margin-top: 18em;
 }
 
 
@@ -129,7 +133,8 @@ body {
     border-radius: 12pt;
     text-align: center;
     vertical-align: middle;
-    margin-left: 92%;
+    position: absolute;
+    right: 21%;
     cursor: pointer;
 }
 
@@ -142,8 +147,9 @@ body {
     border-radius: 12pt;
     text-align: center;
     vertical-align: middle;
-    margin-left: 92%;
     cursor: not-allowed;
+    position: absolute;
+    right: 21%;
 }
 .train-logos-sections-post-page {
     display: grid;
@@ -154,7 +160,6 @@ body {
     border-radius: 12pt;
     padding: 1em 3em;
     margin-bottom: 1em;
-
 }
 
 .train-image {
@@ -192,7 +197,7 @@ body {
 
 .train-image-selected-title {
     margin-top: -0.4em;
-        margin-left: 0.3em;
+    margin-left: 0.3em;
     margin-bottom: -0.4em;
     transform: scale(1.0);
 }
@@ -220,4 +225,74 @@ body {
     margin-top: 0.6em;
     margin-left: 1em;
     font-size: 1em;
+}
+
+@media screen and (max-width: 992px) {
+    .nav-logo-postPage {
+        width: 7em;
+        height: 7em;
+        margin-left: 5%;
+    }
+    .header-title-postPage {
+        font-size: 2.2em;
+        margin-right: 18%;
+    }
+    .title-create-post {
+        font-size: 1.5em;
+    }
+    .main {
+        margin: 5%;
+    }
+    .Submit-section-active {
+        right: 7%;
+    }
+    .Submit-section-not-active {
+        right: 7%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nav-logo-postPage {
+        width: 4em;
+        height: 4em;
+        margin-left: 2%;
+    }
+    .header-title-postPage {
+        font-size: 1.2em;
+    }
+    .title-create-post {
+        font-size: 1em;
+    }
+    .main {
+        margin: 5%;
+    }
+    .pick-a-train {
+        font-size: 1em;
+    }
+    .train-logos-sections-post-page {
+        grid-template: auto auto / repeat(7, 1fr);
+        gap: 15px;
+        background-color: white;
+        border-radius: 12pt;
+        padding: .5em 1em;
+        margin-bottom: .5em;
+    
+    }
+    .select {
+        height: 2em;
+        width: 21em;
+    }
+    .rating-label {
+        font-size: 1em;
+        margin-top: .5em;
+    }
+    .rating-faces {
+        margin-left: 1px;
+    }
+    .Submit-section-active {
+        right: 9%;
+    }
+    .Submit-section-not-active {
+        right: 9%;
+    }
 }
