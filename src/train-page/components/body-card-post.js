@@ -3,9 +3,14 @@ import React from 'react';
 //import {BiMessageDetail} from "react-icons/bi";
 import { BiUpvote } from 'react-icons/bi';
 import { BiDownvote } from 'react-icons/bi';
-
 import Rating from '@mui/material/Rating';
+import { ThemeProvider, useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 function CardPost(props) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
+
   // TODO: We need to received the arguments by props, same for handling States
   const username = props.username;
   const datePost = props.datePost;
@@ -58,80 +63,64 @@ function CardPost(props) {
 
   return (
     <div className="card-post-station-page">
-      <div className="top-section-card-post-station-page">
-        <div className="up-vote-button-card-post-station-page">
-          <p className={plusStyle}>
-            <BiUpvote
-              color={props.isUp ? 'orange' : ''}
-              onClick={props.handleUp}
-            />
-          </p>
-          <p className={voteStyle}>{numberOfVotes}</p>
-          <p className={minusStyle}>
-            <BiDownvote
-              color={props.isDown ? 'blue' : ''}
-              onClick={props.handleDown}
-            />
-          </p>
-        </div>
-
-        <div>
-          <div className="posted-by-section-station-page">
-            <h4>
-              {' '}
-              Posted by u/{username} on {datePost}
-            </h4>
+      <ThemeProvider theme={theme}>
+        <div className="top-section-card-post-station-page">
+          <div className="up-vote-button-card-post-station-page">
+            <p className={plusStyle}>
+              <BiUpvote
+                color={props.isUp ? 'orange' : ''}
+                onClick={props.handleUp}
+              />
+            </p>
+            <p className={voteStyle}>{numberOfVotes}</p>
+            <p className={minusStyle}>
+              <BiDownvote
+                color={props.isDown ? 'blue' : ''}
+                onClick={props.handleDown}
+              />
+            </p>
           </div>
 
-          <div className="StationPage-overall-rating-section">
-            <h2> Overall rating: </h2>
-            <div className="homePage-stars">
-              <Rating
-                name="read-only"
-                precision={0.5}
-                value={props.overallRating}
-                readOnly
-                sx={{
-                  size: {
-                    xxs: 'small',
-                    xs: 'small',
-                    sm: 'medium',
-                    md: 'large',
-                    lg: 'large',
-                    xl: 'large',
-                  },
-                }}
-              />
+          <div>
+            <div className="posted-by-section-station-page">
+              <h4>
+                {' '}
+                Posted by u/{username} on {datePost}
+              </h4>
+            </div>
+
+            <div className="StationPage-overall-rating-section">
+              <h2> Overall rating: </h2>
+              <div className="homePage-stars">
+                <Rating
+                  name="read-only"
+                  precision={0.5}
+                  value={props.overallRating}
+                  readOnly
+                  size={matches ? 'medium' : 'large'}
+                />
+              </div>
+            </div>
+
+            <div className="StationPage-overall-rating-section">
+              <h2> Danger level: </h2>
+              <div className="StationPage-danger-level">
+                <Rating
+                  name="read-only"
+                  precision={0.5}
+                  value={props.dangerLevel}
+                  readOnly
+                  size={matches ? 'medium' : 'large'}
+                />
+              </div>
+            </div>
+
+            <div className="title-of-post-station-page">
+              <h2> {title}</h2>
             </div>
           </div>
-
-          <div className="StationPage-overall-rating-section">
-            <h2> Danger level: </h2>
-            <div className="StationPage-danger-level">
-              <Rating
-                name="read-only"
-                precision={0.5}
-                value={props.dangerLevel}
-                readOnly
-                sx={{
-                  size: {
-                    xxs: 'small',
-                    xs: 'small',
-                    sm: 'medium',
-                    md: 'large',
-                    lg: 'large',
-                    xl: 'large',
-                  },
-                }}
-              />
-            </div>
-          </div>
-
-          <div className="title-of-post-station-page">
-            <h2> {title}</h2>
-          </div>
         </div>
-      </div>
+      </ThemeProvider>
 
       <div
         className={

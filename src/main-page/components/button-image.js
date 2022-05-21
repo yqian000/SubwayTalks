@@ -6,20 +6,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-const theme = createTheme({
-  breakpoints: {
-    values: {
-      xxs: 0, // smol phone
-      xs: 300, // phone
-      sm: 600, // tablets
-      md: 900, // small laptop
-      lg: 1200, // desktop
-      xl: 1536, // large screens
-    },
-  },
-});
+import { ThemeProvider, useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function ButtonImage(props) {
   const url = props.url;
@@ -28,22 +16,16 @@ function ButtonImage(props) {
   const overallStars = Number(props.overallStars);
   const dangerLevel = Number(props.dangerLevel);
 
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
     <ThemeProvider theme={theme}>
       <Card>
         <CardMedia
           component="img"
-          sx={{
-            cursor: 'pointer',
-            height: {
-              xxs: 220,
-              xs: 240,
-              sm: 270,
-              md: 340,
-              lg: 400,
-              xl: 440,
-            },
-          }}
+          cursor="pointer"
+          height={matches ? 300 : 400}
           image={url}
           alt="station"
           onClick={props.handleNavigateToStation}
@@ -61,16 +43,7 @@ function ButtonImage(props) {
                 precision={0.5}
                 value={overallStars}
                 readOnly
-                sx={{
-                  size: {
-                    xxs: 'small',
-                    xs: 'small',
-                    sm: 'medium',
-                    md: 'large',
-                    lg: 'large',
-                    xl: 'large',
-                  },
-                }}
+                size={matches ? 'medium' : 'large'}
               />
             </div>
           </div>
@@ -83,16 +56,7 @@ function ButtonImage(props) {
                 precision={0.5}
                 value={dangerLevel}
                 readOnly
-                sx={{
-                  size: {
-                    xxs: 'small',
-                    xs: 'small',
-                    sm: 'medium',
-                    md: 'large',
-                    lg: 'large',
-                    xl: 'large',
-                  },
-                }}
+                size={matches ? 'medium' : 'large'}
               />
             </div>
           </div>

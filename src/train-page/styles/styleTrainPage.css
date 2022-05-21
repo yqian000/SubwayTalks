@@ -390,6 +390,10 @@ margin-bottom: -0.3em;
     margin-left: 1em;
 }
 
+.StationPage-overall-rating-section h2 {
+    font-size: 30px;
+}
+
 .StationPage-danger-level {
     margin-top: 0.3em;
     margin-left: 1em;
@@ -494,7 +498,8 @@ margin-bottom: -0.3em;
         font-size: 1em;
     }
     .StationPage-overall-rating-section h2 {
-        font-size: 17px;
+        font-size: 18px;
+        margin: 0;
     }
     .StationPage-danger-level {
         margin-top: 0em;

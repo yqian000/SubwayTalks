@@ -6,22 +6,13 @@ import { nanoid } from 'nanoid';
 import ButtonImage from './button-image';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate } from 'react-router-dom';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-const theme = createTheme({
-  breakpoints: {
-    values: {
-      xxs: 0, // smol phone
-      xs: 300, // phone
-      sm: 600, // tablets
-      md: 900, // small laptop
-      lg: 1200, // desktop
-      xl: 1536, // large screens
-    },
-  },
-});
+import { ThemeProvider, useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function Body(props) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
+
   // Store the coming data at the following state
   const [stationState, setStation] = React.useState([]);
 
@@ -127,95 +118,78 @@ function Body(props) {
   }
   return (
     <main>
-      <div className="home-main-filter">
-        <h1> Filter: </h1>
-        <button
-          type="button"
-          className="btn btn-outline-warning btn-lg"
-          onClick={() => handleFilters('')}
-        >
-          ALL
-        </button>
-        <button
-          type="button"
-          className="btn btn-outline-warning btn-lg"
-          onClick={() => handleFilters('topRated')}
-        >
-          Top Rated
-        </button>
-        <button
-          type="button"
-          className="btn btn-outline-warning btn-lg"
-          onClick={() => handleFilters('topDanger')}
-        >
-          Top dangerous
-        </button>
-        <button
-          type="button"
-          className="btn btn-outline-warning btn-lg"
-          onClick={() => handleFilters('Brooklyn')}
-        >
-          Brooklyn
-        </button>
-        <button
-          type="button"
-          className="btn btn-outline-warning btn-lg"
-          onClick={() => handleFilters('Manhattan')}
-        >
-          Manhattan
-        </button>
-        <button
-          type="button"
-          className="btn btn-outline-warning btn-lg"
-          onClick={() => handleFilters('TheBronx')}
-        >
-          The Bronx
-        </button>
-        <button
-          type="button"
-          className="btn btn-outline-warning btn-lg"
-          onClick={() => handleFilters('Queens')}
-        >
-          Queens
-        </button>
-        <button
-          type="button"
-          className="btn btn-outline-warning btn-lg"
-          onClick={() => handleFilters('StatenIsland')}
-        >
-          Staten Island
-        </button>
-      </div>
-
-      {activeCircular ? (
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <div className="home-main-filter">
+          <h1> Filter: </h1>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('')}
+          >
+            ALL
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('topRated')}
+          >
+            Top Rated
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('topDanger')}
+          >
+            Top dangerous
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('Brooklyn')}
+          >
+            Brooklyn
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('Manhattan')}
+          >
+            Manhattan
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('TheBronx')}
+          >
+            The Bronx
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('Queens')}
+          >
+            Queens
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('StatenIsland')}
+          >
+            Staten Island
+          </button>
+        </div>
+        {activeCircular ? (
           <div className="homePage-Loading">
             <CircularProgress
-              sx={{
-                size: {
-                  xxs: '4rem',
-                  xs: '4rem',
-                  sm: '5rem',
-                  md: '5rem',
-                  lg: '6rem',
-                  xl: '7rem',
-                },
-                thickness: {
-                  xxs: 2,
-                  xs: 2,
-                  sm: 3,
-                  md: 3,
-                  lg: 4,
-                  xl: 4,
-                },
-              }}
+              size={matches ? 80 : 112}
+              thickness={matches ? 3 : 4}
               disableShrink
             />
           </div>
-        </ThemeProvider>
-      ) : (
-        <div className="homePage-grid-images">{stationState}</div>
-      )}
+        ) : (
+          <div className="homePage-grid-images">{stationState}</div>
+        )}
+      </ThemeProvider>
     </main>
   );
 }
