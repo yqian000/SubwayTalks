@@ -1,50 +1,58 @@
 body {
     margin: 0;
+    padding: 0;
 }
 
 
 /* Header  */
 .nav-logo-home {
-    width: 12em;
-    height: 12em;
+    width: 14em;
+    height: 14em;
+    flex: 1;
+    object-fit: contain;
 }
 
 .header-home {
     display: flex;
+    /* flex-direction: row; */
+    flex-flow: row wrap;
     background-color: white;
 }
 
 .header-home-title {
     font-size: 4.5em;
-    margin-left: 6em;
-    margin-top: 1em;
+    margin: 1em 0;
+    flex: 3;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
 }
 
-.header-home-title-logged {
-    font-size: 4em;
-    margin-left: 5em;
-    margin-top: 1.3em;
-}
 .header-home-buttons {
-    margin-top: 5em;
-    margin-left: 20em;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-home-button-log {
     background-color: lightskyblue;
-    padding: 0em 2em;
     margin-top: 0.4em;
     font-size: 1.5em;
     border-radius: 12pt;
     cursor: pointer;
+    width: 8em;
+    text-align: center;
 }
 
 .header-home-button-sign {
     background-color: lightskyblue;
-    padding: 0em 1.65em;
     font-size: 1.5em;
     border-radius: 12pt;
     cursor: pointer;
+    width: 8em;
+    text-align: center;
 }
 
 .home-gif {
@@ -52,14 +60,15 @@ body {
 }
 
 .header-home-greeting {
+    flex: 1;
     display: flex;
-    margin-top: 4.5em;
-    margin-left: 6em;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-home-greeting-title {
     margin-left: 0.4em;
-    margin-top: 0.5em;
     font-size: 2em;
 }
 
@@ -70,24 +79,35 @@ body {
 }
 .reddit-waving-gif {
     pointer-events: none;
+    height: 80px;
+    width: 80px;
 }
 /*^Header  */
 
 
 /* Body */
 .homePage-Loading {
-    margin-left: 50%;
-    margin-right: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .home-main-filter {
     display: flex;
     margin-left: 2em;
+    margin-bottom: 1em;
+    flex-direction: row;
+    flex-flow: row wrap;
+}
+
+.btn-outline-warning {
+    border-style: none;
+    color: #1976D2;
 }
 
 .homePage-trainLogos {
     display: grid;
-    grid-template: auto auto /repeat(15, 1fr);
+    grid-template: auto auto /repeat(7, 1fr);
     gap: 10px;
 }
 
@@ -97,21 +117,128 @@ body {
 
 .homePage-stars {
     margin-top: 0.4em;
-        margin-left: 0.7em;
-    }
+    margin-left: 0.7em;
+}
     
-    .homePage-stars-below {
-        margin-top: 0.4em;
-        margin-left: 1.75em;
+.homePage-stars-below {
+    margin-top: 0.4em;
+    margin-left: 1.75em;
 }
 
 .homePage-grid-images {
-    margin: 0em 1em;
+    margin: 0em 2em;
     grid-template: auto auto / repeat(3, 1fr);
     display: grid;
-    gap: 20px;
-
+    gap: 50px;
 }
+
+@media screen and (max-width: 992px) {
+    .homePage-grid-images {
+        grid-template: auto auto / repeat(2, 1fr);
+    }
+    .nav-logo-home {
+        width: 7em;
+        height: 7em;
+    }
+    .header-home-title {
+        font-size: 2em;
+        margin-top: .8em;
+    }
+    .header-home-button-log {
+        font-size: .9em;
+        width: 6em;
+    }
+    .header-home-button-sign {
+        font-size: .9em;
+        width: 6em;
+    }
+    .home-main-filter {
+        margin-left: 2em;
+    }
+    .home-main-filter h1{
+        font-size: 1em;
+        align-self: center;
+        margin: 0;
+    }
+    .btn-outline-warning  {
+        font-size:90%;
+        padding: 8px;
+    }
+    .homePage-overall-rating-section h2{
+        font-size: 22px;
+    }
+    .homePage-stars {
+        margin: .1em 1em;
+    }
+        
+    .homePage-stars-below {
+        margin: .1em 1em;
+    }
+    .header-home-greeting-title {
+        margin-left: 0.4em;
+        font-size: 1em;
+    }
+    .reddit-waving-gif {
+        height: 40px;
+        width: 40px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .homePage-grid-images {
+        grid-template: auto auto / repeat(1, 1fr);
+        margin: 0em 1em;
+    }
+    .nav-logo-home {
+        width: 4.5em;
+        height: 4.5em;
+    }
+    .header-home-title {
+        font-size: 1.2em;
+        margin-top: .5em;
+    }
+    .header-home-button-log {
+        font-size: .7em;
+        width: 5em;
+    }
+    .header-home-button-sign {
+        font-size: .7em;
+        width: 5em;
+    }
+    .home-main-filter {
+        margin-left: 1em;
+    }
+    .home-main-filter h1{
+        font-size: .8em;
+        align-self: center;
+        margin: 0;
+    }
+    .btn-outline-warning  {
+        font-size:80%;
+        padding: 6px;
+    }
+    .homePage-overall-rating-section h2{
+        font-size: 18px;
+    }
+    .homePage-stars {
+        margin: 0 .8em;
+    }
+        
+    .homePage-stars-below {
+        margin: 0 .8em;
+    }
+    .header-home-greeting-title {
+        font-size: .6em;
+        padding-left: 10px;
+    }
+    .reddit-waving-gif {
+        height: 20px;
+        width: 20px;
+    }
+    .header-home-greeting {
+        flex-direction: column;
+    }
+  }
 
 
 /* ^Body */

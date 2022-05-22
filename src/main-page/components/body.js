@@ -5,10 +5,14 @@ import { nanoid } from 'nanoid';
 
 import ButtonImage from './button-image';
 import CircularProgress from '@mui/material/CircularProgress';
-import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+import { ThemeProvider, useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function Body(props) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
+
   // Store the coming data at the following state
   const [stationState, setStation] = React.useState([]);
 
@@ -114,69 +118,78 @@ function Body(props) {
   }
   return (
     <main>
-      <div className="home-main-filter">
-        <h1> Filter: </h1>
-        <Button size="large" variant="text" onClick={() => handleFilters('')}>
-          All
-        </Button>
-        <Button
-          size="large"
-          variant="text"
-          onClick={() => handleFilters('topRated')}
-        >
-          Top Rated
-        </Button>
-        <Button
-          size="large"
-          variant="text"
-          onClick={() => handleFilters('topDanger')}
-        >
-          Top dangerous
-        </Button>
-        <Button
-          size="large"
-          variant="text"
-          onClick={() => handleFilters('Brooklyn')}
-        >
-          Brooklyn
-        </Button>
-        <Button
-          size="large"
-          variant="text"
-          onClick={() => handleFilters('Manhattan')}
-        >
-          Manhattan
-        </Button>
-        <Button
-          size="large"
-          variant="text"
-          onClick={() => handleFilters('TheBronx')}
-        >
-          The Bronx
-        </Button>
-        <Button
-          size="large"
-          variant="text"
-          onClick={() => handleFilters('Queens')}
-        >
-          Queens
-        </Button>
-        <Button
-          size="large"
-          variant="text"
-          onClick={() => handleFilters('StatenIsland')}
-        >
-          Staten Island
-        </Button>
-      </div>
-
-      {activeCircular ? (
-        <div className="homePage-Loading">
-          <CircularProgress size="7rem" thickness={4} disableShrink />
+      <ThemeProvider theme={theme}>
+        <div className="home-main-filter">
+          <h1> Filter: </h1>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('')}
+          >
+            ALL
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('topRated')}
+          >
+            Top Rated
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('topDanger')}
+          >
+            Top dangerous
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('Brooklyn')}
+          >
+            Brooklyn
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('Manhattan')}
+          >
+            Manhattan
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('TheBronx')}
+          >
+            The Bronx
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('Queens')}
+          >
+            Queens
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-warning btn-lg"
+            onClick={() => handleFilters('StatenIsland')}
+          >
+            Staten Island
+          </button>
         </div>
-      ) : (
-        <div className="homePage-grid-images">{stationState}</div>
-      )}
+        {activeCircular ? (
+          <div className="homePage-Loading">
+            <CircularProgress
+              size={matches ? 80 : 112}
+              thickness={matches ? 3 : 4}
+              disableShrink
+            />
+          </div>
+        ) : (
+          <div className="homePage-grid-images">{stationState}</div>
+        )}
+      </ThemeProvider>
     </main>
   );
 }

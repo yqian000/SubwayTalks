@@ -59,7 +59,7 @@ function SignUpPage() {
   return (
     <section className="mt-5">
       <h2 className="title">Welcome to SubwayTalks website</h2>
-      <div className="container col-5">
+      <div className="container col-md-5">
         <div className="card p-5 shadow-lg bg-white rounded">
           <div className="row">
             <div className="col-12 align-self-center">

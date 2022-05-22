@@ -22,13 +22,14 @@ function Header(props) {
   }
 
   // TODO: Log out user
-  function handleLogOut() {   
+  function handleLogOut() {
     //window.location.reload();
-    navigate('/main/logged-in-as?guest', {state: {
-      username: "",
-      userId: "",
-    }}); 
-
+    navigate('/main/logged-in-as?guest', {
+      state: {
+        username: '',
+        userId: '',
+      },
+    });
   }
 
   return (
@@ -39,18 +40,12 @@ function Header(props) {
         className="nav-logo-home"
       />
 
-      <h1
-        className={isLogged ? 'header-home-title-logged' : 'header-home-title'}
-      >
-        SubwayTalks Web Page
-      </h1>
+      <h1 className="header-home-title">SubwayTalks Web Page</h1>
 
       {isLogged ? (
         <div className="header-home-greeting">
           <iframe
             src="https://giphy.com/embed/3oEjHXb3nbhoCTX1Qc"
-            width="80"
-            height="80"
             title="gif"
             frameBorder="0"
             className="reddit-waving-gif"
@@ -71,12 +66,10 @@ function Header(props) {
             Sign Up{' '}
           </button>
 
-          <div>
-            <button onClick={handleLogIn} className="header-home-button-log">
-              {' '}
-              Log In{' '}
-            </button>
-          </div>
+          <button onClick={handleLogIn} className="header-home-button-log">
+            {' '}
+            Log In{' '}
+          </button>
         </div>
       )}
     </header>
